@@ -3,8 +3,6 @@ id: parking-000
 type: Location
 contains:
   - lampe-000
-  - briquet-000
-  - flambeau-000
 events:
   info:
     actor: "Parking de l'IUT."
@@ -247,7 +245,7 @@ events:
   look:
     actor: |
       Vous êtes à l'étage du département.  Au nord-ouest,
-      la salle 22 est ouverte, au nord-est la salle 21 est ouverte.
+      la salle 22 est ouverte.
 ---
 id: etage-salle-22-000
 type: Portal
@@ -428,102 +426,6 @@ events:
     - actor : "Vous éteignez votre lampe-torche."
       observer: |
         {{ actor.name }} éteind sa lampe-torche.
-      effects:
-        - type  : ChangePropEffect
-          modifs: -object:light-on
----
-id: salle-21-000
-type: Location
-contains:
-  - souris-000
-events:
-  info:
-    actor : "Une salle avec des ordinateurs."
-  look:
-    actor : "Vous êtes dans une salle vide, il eeste des traces de sueur dans l'air, vous pouvez voir une souris sur une table."
----
-id: portal-salle-21-000
-type: Portal
-exits:
-  - id: etage-000-nord-est
-    location: etage-000
-    direction: nord-est
-    props:
-      - for-enter
-  - id: salle-21-000-sud-ouest
-    location: salle-21-000
-    direction: sud-ouest
-    props:
-      - for-leave
----
-id: souris-000
-type: Thing
-props:
-  - takable
-names:
-  - souris
-gender: fem
-events:
-  info:
-    actor : "Une vieille souris Logitech."
-  look:
-    actor : "Une vieille souris Logitech."
----
-id: briquet-000
-type: Thing
-props:
-  - takable
-  - igniter
-names:
-  - briquet
-events:
-  info:
-    actor : "Un briquet."
-  look:
-    actor : "Wesh gars c'est un briquet calme toi."
----
-id: flambeau-000
-type: Thing
-props:
-  - takable
-  - flammable
-  - lightable
-names:
-  - flambeau
-  - torche
-gender: fem
-events:
-  info:
-    actor:
-      - props: object:light-on
-        data : "Un flambeau pas flambant neuf flambe avec une flame qui fait des flammèches. info"
-      - data : "Un flambeau pas flambant neuf info."
-  look:
-    actor:
-      - props: object:light-on
-        data : "Un flambeau pas flamabnt neuf flambe avec une flame qui fait des flammèches. look"
-      - data : "Un flambeau pas flambant neuf look."
-  light-with:
-    - props : object:light-on
-      actor : "Votre flambeau flambe déjà avec une flame"
-    - props :
-        - object2:igniter
-      effects:
-        - type  : ChangePropEffect
-          modifs: flambeau-000:light-on
-      actor : "Vous faite flamber votre flambeau pas flambant neuf avec une flame et mainteant votre flambeau flambe."
-    - actor : "Vous faite flamber votre flambeau."
-      observer: |
-        {{ actor.name }} allume sa lampe-torche.
-      effects:
-        - type  : ChangePropEffect
-          modifs: object:light-on
-  light-off:
-    - props : -object:light-on
-      actor : "Le flambeau ne flmabe pas."
-    - actor : "Vous vous torchez avec votre torche qui ne torche plus les alentours avec sa flamme."
-      observer: |
-        {{ actor.name }} éteind sa torche.
       effects:
         - type  : ChangePropEffect
           modifs: -object:light-on

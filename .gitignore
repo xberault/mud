@@ -1,0 +1,7 @@
+*~
+.datadir
+__pycache__
+tmp
+venv
+NOTES.TXT
+.games
