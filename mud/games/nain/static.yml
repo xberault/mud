@@ -234,10 +234,25 @@ events:
       actor: |
         Vous vous matérialisez à votre destination.
 
-  # this is the default for portal/exits
-  # it should not really be under events, but that's because
-  # I am using the get_event_data API.  It should fix this one day!!!
   shared-props:
     - closed
     - closable
+  jump:
+    succeeded:
+      actor: |
+        Vous venez d'effectuer un tout petit saut
+      observer: |
+        {{ actor.name }} a mis toutes ses forces dans un saut ... très petit
+    failed:
+      actor: |
+        Vous tombez 
+      observer: |
+        {{ actor.name }} vient de tomber misérablement
 
+
+
+
+
+  # this is the default for portal/exits
+  # it should not really be under events, but that's because
+  # I am using the get_event_data API.  It should fix this one day!!!
