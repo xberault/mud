@@ -6,7 +6,15 @@ function start_websocket() {
 	$("#messageform").on("submit", function() {
             newMessage($(this));
             return false;
-	});
+    });
+    $(document).ready(function(){
+
+        $("#submitBtn").click(function(){        
+    
+            $("#messageform").submit();
+    
+    });
+});
 	$("#messageform").on("keypress", function(e) {
             if (e.keyCode == 13) {
 		newMessage($(this));
@@ -64,7 +72,6 @@ var updater = {
     showMessage: function(message) {
 	var html = "<div class=\"alert mud-"+message.type+"\">"+message.html+"</div>"
         $("#inboxcontents").append(html);
-        console.log(message);
 	scroll_to_bottom();
     }
 };
