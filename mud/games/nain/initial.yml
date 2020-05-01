@@ -13,6 +13,11 @@ events:
       Vous vous réveillez au milieu d'une petite salle, légèrement
       éclairée par une torche murale. À côté de cette torche, vous
       voyez une statue d'une cinquantaine de centimètres.
+  nez-koala:
+    observer : |
+      Un bruit de friction entre deux roches se fait entendre.
+      Une porte s'est ouverte sur un mur de la salle. Votre instinct
+      vous indique que cette porte est au norde de votre salle.
 ---
 id: koala-000
 type: Thing
@@ -21,11 +26,11 @@ names:
   - statue
 events:
   info:
-    actor: "Une statue de koala"
+    actor: "Une statue de pierre"
   look:
     actor: |
       Une statue de pierre.
-      Même si vous ne vous souvenez pas d'en avoir vu un seul dans
+      Même si vous ne vous souvenez pas en avoir vu un seul dans
       votre vie, vous êtes persuadé qu'il s'agit d'un koala. Vous
       remarquez que son nez est étrangement sculpté.
 ---
@@ -49,7 +54,14 @@ events:
       {{actor.name}} appuie sur le nez du koala.
     effects:
       - type : ChangePropEffect
-        modifs: =portal-accueil-salle1-000:activated
+        modifs: -pushable
+      - type : ChangePropEffect
+        modifs: =salle1-000-sud:activated
+      - type : ChangePropEffect
+        modifs: =accueil-000-nord:activated
+      - type : NarrativeEffect
+        at : =accueil-000
+        key : nez-koala
 ---
 id: portal-accueil-salle1-000
 type: Portal
@@ -57,25 +69,31 @@ exits:
   - id: accueil-000-nord
     location: accueil-000
     direction: nord
+    props:
+      - for-leave
     events:
       enter-portal:
-        actor: "Vous passez la petite porte sans vous baisser."
-        observer: "{{actor.name}} passe la petite porte."
-      leave-portal:
-        observer: |
-          {{actor.name}} passe la petite porte au nord et rentre
-          dans la salle.
+        - props: exit:activated
+          actor: "Vous passez la petite porte sans vous baisser."
+          observer: "{{actor.name}} passe la petite porte."
+          effects:
+            - type : ChangePropEffect
+              modifs : -exit:activated
+        - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
   - id: salle1-000-sud
     location: salle1-000
     direction: sud
+    props:
+      - for-leave
     events:
       enter-portal:
-        actor: "Vous passez la petite porte."
-        observer: "{{actor.name}} passe la petite porte au sud."
-      leave-portal:
-        observer : |
-          {{actor.name}} passe la petite porte au sud et rentre
-          dans la salle.
+        - props: exit:activated
+          actor: "Vous passez la petite porte."
+          observer: "{{actor.name}} passe la petite porte au sud."
+          effects:
+            - type : ChangePropEffect
+              modifs : -exit:activated
+        - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
 ---
 id: salle1-000
 type: Location
