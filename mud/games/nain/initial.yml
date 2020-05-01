@@ -80,6 +80,7 @@ exits:
             - type : ChangePropEffect
               modifs : -exit:activated
         - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
+          data-driven: true
   - id: salle1-000-sud
     location: salle1-000
     direction: sud
