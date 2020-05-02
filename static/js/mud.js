@@ -90,8 +90,8 @@ function btTouch()
 {
     if(!$("#btTouch").prop("disabled"))
     {
-        let rep1 = "<div class='alert mud-result'>Le chien tout fier te dit de crier <tt>woufiwouwafwaf<tt> pour ouvrir la grande porte au sud</div>";
-        let rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter de vous frapper vous ou les koalas"
+        let rep1 = "<div class='alert mud-result'>Le chien tout fier te dit de crier <tt>woufiwouwafwaf</tt> pour ouvrir la grande porte au nord.</div>";
+        let rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter de vous frapper vous ou les koalas."
         $("#inboxcontents").append(rep1,rep2);
         disableBt();
     }

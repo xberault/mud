@@ -12,7 +12,8 @@ events:
     actor: |
       Vous vous réveillez au milieu d'une petite salle, légèrement
       éclairée par une torche murale. À côté de cette torche, vous
-      voyez une statue d'une cinquantaine de centimètres.
+      voyez une statue d'une cinquantaine de centimètres. Vous voyez
+      au dessus de vous une trappe menant vers un étage.
   nez-koala:
     observer : |
       Un bruit de friction entre deux roches se fait entendre.
@@ -127,7 +128,12 @@ events:
       au***s ce**i-là...".</i><br>
       Vous êtes maintenant à un mètre du chien. Celui-ci se redresse.
       Il ne semble pas très grand mais son museau vous arrive tout de même à votre ventre
-      gargouillant. "Waf waf" dit le chien qui n'a plus l'air de vouloir parler.
+      gargouillant. "Waf waf" dit le chien qui n'a plus l'air de vouloir parler. <br>
+      <button id="btEat" type="button" class="btn btn-primary" onclick="btEat()">Manger</button>
+      <button id="btTouch" type="button" class="btn btn-warning" onclick="btTouch()">Toucher le nez</button>
+    effects:
+      - type: ChangePropEffect
+        modifs: -lookable #marche pas encore
 ---
 id: portal-salle1-salle2-000
 type: Portal
@@ -209,4 +215,12 @@ events:
       En regardant attentivement la dentition de la clé, vous devinez qu'elle ouvre la serrure par
       laquelle vous la regarder. Vous apercevez aussi, sur son embase, un symbole formant la tête
       d'un koala.
----
+# ---
+# id: portal-accueil-culdesac-000
+# type: Portal
+# exits:
+#   - id: accueil-000-haut
+#     location: accueil-000
+#     direction: haut
+#     events:
+#       enter-portal: "oui"
