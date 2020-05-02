@@ -76,9 +76,9 @@ exits:
         - props: exit:activated
           actor: "Vous passez la petite porte sans vous baisser."
           observer: "{{actor.name}} passe la petite porte."
-          effects:
-            - type : ChangePropEffect
-              modifs : -exit:activated
+          #effects:
+            #- type : ChangePropEffect
+            #  modifs : -exit:activated
         - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
           data-driven: true
   - id: salle1-000-sud
@@ -91,16 +91,17 @@ exits:
         - props: exit:activated
           actor: "Vous passez la petite porte."
           observer: "{{actor.name}} passe la petite porte au sud."
-          effects:
-            - type : ChangePropEffect
-              modifs : -exit:activated
+          #effects:
+            #- type : ChangePropEffect
+            #  modifs : -exit:activated
         - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
+          data-driven: true
 ---
 id: salle1-000
 type: Location
 events:
   info:
-    actor: "Salle 1"
+    actor: "Large couloir"
   look:
     actor: |
       C'est la salle 1 ouais
