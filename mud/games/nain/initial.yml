@@ -79,7 +79,8 @@ exits:
           #effects:
             #- type : ChangePropEffect
             #  modifs : -exit:activated
-        - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
+        - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front."
+          observer: "{{actor.name}} fonce tête baissée dans le mur nord. Il jure."
           data-driven: true
   - id: salle1-000-sud
     location: salle1-000
@@ -94,14 +95,118 @@ exits:
           #effects:
             #- type : ChangePropEffect
             #  modifs : -exit:activated
-        - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front"
+        - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front."
+          observer: "{{actor.name}} fonce tête baissée dans le mur sud. Il jure."
           data-driven: true
 ---
 id: salle1-000
 type: Location
+parts:
+  - chien-000
 events:
   info:
     actor: "Large couloir"
   look:
     actor: |
-      C'est la salle 1 ouais
+      Vous êtes dans un large couloir, assez bien éclairé par des torches murales.
+      À cinq mètres devant vous, vous remarquez un chien qui agite étrangement ses
+      babines. Vous distinguez difficilement, au fond de la salle, une grande porte
+      de pierre.
+---
+id: chien-000
+type: Thing
+name:
+  - chien
+events:
+  look:
+    actor: |
+      Vous remarquez que si le chien agite ses babines, c'est parce qu'il parle.
+      Vous vous approchez et entendez difficilement : <br>
+      <i>"...core ob**gé de re***r i** pou* guid** ces a****is de bi*èdes... ah ** va
+      m'en****re c'est **r... oh a*****on en *oilà un, tiens... plus p**i* q** *es
+      au***s ce**i-là...".</i><br>
+      Vous êtes maintenant à un mètre du chien. Celui-ci se redresse.
+      Il ne semble pas très grand mais son museau vous arrive tout de même à votre ventre
+      gargouillant. "Waf waf" dit le chien qui n'a plus l'air de vouloir parler.
+---
+id: portal-salle1-salle2-000
+type: Portal
+exits:
+  - id: salle1-000-nord
+    location: salle1-000
+    direction: nord
+    props:
+      - for-leave
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous passez par la grande porte de pierre."
+          observer: "{{actor.name}} passe par la grande porte de pierre au fond du couloir."
+        - actor: "La porte ne veut définitivement pas s'ouvrir."
+          observer: "{{actor.name}} pousse en vain la grande porte de pierre."
+          data-driven: true
+  - id: salle2-000-sud
+    location: salle2-000
+    direction: sud
+    props:
+      - for-leave
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous passez par la grande porte de pierre."
+          observer: "{{actor.name}} passe par la grande porte de pierre au sud."
+        - actor: "La porte ne veut pas s'ouvrir. Il semble qu'elle ne s'ouvre que de l'autre côté"
+          observer: "{{actor.name}} pousse en vain la grande porte de pierre."
+          data-driven: true
+---
+id: salle2-000
+type: Location
+parts:
+#  - chien-001
+   - armoire-000
+events:
+  info:
+    actor: "Grande salle"
+  look:
+    actor: |
+      Vous êtes dans une très grande salle. Le plafond a l'air si haut qu'il vous est
+      difficile de savoir s'il y en a vraiment un. La grandeur de cette salle est
+      accentué par le vide qui l'habite. Vous ne voyez qu'une grande armoire sur votre
+      gauche. Vous retrouvez le chien au centre de la salle.
+---
+id: armoire-000
+type: Container
+name: armoire
+contains:
+  - escabeau-000
+  - cle-armoire-000
+events:
+  look:
+    actor: |
+      L'armoire est très imposante. Elle semble faite d'un bois que vous n'avez jamais vu.
+      En haut de cette armoire, vous voyez un escabeau. Et à ses pied, vous voyez un bâton.
+      Lorsque vous regardez par la serrure de l'armoire, vous distinguez une clé.
+---
+id: escabeau-000
+type: Thing
+name: escabeau
+events:
+  look:
+    actor: |
+      Un escabeau tout à fait banal. Sur les deux côtés vous lisez des lettres incrustées dans le bois.
+      Vous lisez : <i> T O I Δ L F M E N I </i> du côté gauche, et <i> I M U T I _ F </i>
+      du côté droit.
+---
+id: cle-armoire-000
+type: Thing
+names:
+  - clé
+  - cle
+  - clef
+events:
+  look:
+    actor: |
+      En regardant attentivement la dentition de la clé, vous devinez qu'elle ouvre la serrure par
+      laquelle vous la regarder. Vous apercevez aussi, sur son embase, un symbole formant la tête
+      d'un koala.
+---
