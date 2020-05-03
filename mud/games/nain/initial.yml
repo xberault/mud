@@ -98,6 +98,7 @@ id: salle1-000
 type: Location
 parts:
   - chien-000
+  - trappe-000
 events:
   info:
     actor: "Large couloir"
@@ -107,17 +108,23 @@ events:
       À cinq mètres devant vous, vous remarquez un chien qui agite étrangement ses
       babines. Vous distinguez difficilement, au fond de la salle, une grande porte
       de pierre.
-  # bark:
-  #     actor: |
-  #       La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
-  #     observer: |
-  #       {{ actor.name }} vient d'ouvrir la grande porte grâce à ses talents de chien.
-  #     effects:
-  #       - type: ChangePropEffect
-  #         modifs: =salle2-000-sud:activated
-  #       - type: ChangePropEffect
-  #         modifs: =salle1-000-nord:activated
-  # marche po
+  bark:
+      actor: |
+        Vous aboyez excellement bien.
+      observer: |
+        Vous entendez {{ actor.name }} exceller à ses talents de chien.
+      effects:
+        - type: ChangePropEffect
+          modifs: =salle2-000-sud:activated
+        - type: ChangePropEffect
+          modifs: =salle1-000-nord:activated
+        - type: NarrativeEffect
+          at: =salle1-000
+          key: porteouverte
+  # bark marche po
+  porteouverte:
+    observer: |
+      La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
 ---
 id: chien-000
 type: Thing
@@ -139,6 +146,27 @@ events:
     effects:
       - type: ChangePropEffect
         modifs: object:cannot-look #marche pas encore
+---
+id: trappe-000
+type: Thing
+name: trappe
+gender: fem
+events:
+  look:
+    actor: |
+      Vous vous approchez doucement de la trappe pour l'observer. Vous vous mettez à plat ventre et
+      apercevez le chien. Il aboie et vous vous relevez en sursautant.
+    observer: |
+      {{actor.name}} s'approche d'une trappe à côté de la grande porte. Il s'allonge et vous entendez
+      un chien aboyer.
+    effects:
+        - type: ChangePropEffect
+          modifs: =salle2-000-sud:activated
+        - type: ChangePropEffect
+          modifs: =salle1-000-nord:activated
+        - type: NarrativeEffect
+          at: =salle1-000
+          key: porteouverte
 ---
 id: portal-salle1-salle2-000
 type: Portal
@@ -216,6 +244,7 @@ names:
   - clé
   - cle
   - clef
+gendre: fem
 events:
   look:
     actor: |
