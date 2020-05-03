@@ -172,6 +172,7 @@ type: Location
 parts:
 #  - chien-001
    - armoire-000
+   - porte-000
 events:
   info:
     actor: "Grande salle"
@@ -193,7 +194,8 @@ events:
     actor: |
       L'armoire est très imposante. Elle semble faite d'un bois que vous n'avez jamais vu.
       En haut de cette armoire, vous voyez un escabeau. Et à ses pied, vous voyez un bâton.
-      Lorsque vous regardez par la serrure de l'armoire, vous distinguez une clé.
+      Lorsque vous regardez par la serrure de l'armoire, vous distinguez une clé.<br>
+      À droite de cette armoire, vous remarquez une petite porte en bois.
 ---
 id: escabeau-000
 type: Thing
@@ -217,6 +219,51 @@ events:
       En regardant attentivement la dentition de la clé, vous devinez qu'elle ouvre la serrure par
       laquelle vous la regarder. Vous apercevez aussi, sur son embase, un symbole formant la tête
       d'un koala.
+---
+id: porte-000
+type: Thing
+name: porte
+gender: fem
+props:
+  - takable
+  - pushable
+events:
+  info:
+    actor: "Une vieille porte en bois"
+  look:
+    actor: |
+      C'est une petite porte en bois. Elle fait 1m20 de haut, pour 50cm de large. Elle est si vieille
+      que vous ne comprenez pas comment elle tient encore sur ses gonds. Un simple coup de vent pourrait
+      la faire basculer.
+  take:
+    actor: "Vous prenez simplement la porte."
+    effects:
+      - type: ChangePropEffect
+        modifs: -pushable
+  push:
+    actor: "Vous poussez simplement la porte. Elle tombe à terre."
+    observer: "{{actor.name}} pousse légèrement une porte à droite de l'armoire. Elle tombe à terre."
+    effects:
+      - type: ChangePropEffect
+        modifs: -pushable
+---
+id: portal-salle2-salle3-000
+type: Portal
+exits:
+  - id: portal-salle2-000-ouest
+    location: salle2-000
+    direction: ouest
+    events:
+      enter-portal:
+        actor: "Vous passez par l'ouverture."
+        observer: "{{actor.name}} passe par une petite ouverture à droite de l'armoire."
+  - id: portal-salle3-000-est
+    location: salle3-000
+    direction: est
+    events:
+      enter-portal:
+        actor: "Vous passez par la petite ouverture."
+        observer: "{{actor.name}} rentre dans l'ouverture."
 ---
 id: salle3-000
 type: Location
@@ -297,7 +344,7 @@ events:
       - type: EnterPortalEffect
         exit: =portal-salle3-000-bas
 ---
-id: portal-salle3-salle4
+id: portal-salle3-salle4-000
 type: Portal
 exits:
   - id: portal-salle3-000-bas
