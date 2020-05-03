@@ -7,6 +7,7 @@ from mud.actions import (
     OpenWithAction, CloseAction, TypeAction, InventoryAction,
     LightOnAction, LightOffAction, DropAction, DropInAction,
     PushAction, TeleportAction, EnterAction, LeaveAction,
+    YarkAction
 )
 
 import mud.game

@@ -127,7 +127,15 @@ events:
       <button id="btTouch" type="button" class="btn btn-warning" onclick="btTouch()">Le caresser</button>
     effects:
       - type: ChangePropEffect
-        modifs: -lookable #marche pas encore
+        modifs: object:cannot-look #marche pas encore
+    bark:
+      actor: |
+        La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
+      observer: |
+        {{ actor.name }} vient d'ouvrir la grande porte grâce à ses talents de chien.
+      effects:
+        -type: ChangePropEffect
+        modifs: =portal-salle1-salle2-000:activated
 ---
 id: portal-salle1-salle2-000
 type: Portal

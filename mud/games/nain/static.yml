@@ -250,7 +250,12 @@ events:
         {{ actor.name }} vient de tomber misérablement.
 
 
-
+  bark:
+    succeeded:
+      actor: |
+        Vous faites un petit waouf
+      observer: |
+        {{ actor.name }} se met à aboyer.
 
 
   # this is the default for portal/exits

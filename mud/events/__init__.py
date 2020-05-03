@@ -21,3 +21,4 @@ from .deadaction   import DeadAction
 from .teleport     import TeleportEvent
 from .narrative    import NarrativeEvent
 from .jump         import JumpEvent
+from .bark         import BarkEvent
