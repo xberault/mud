@@ -229,15 +229,18 @@ events:
 ---
 id: baton-000
 type: Thing
+names:
+  - baton
+  - bâton
 props:
-  -takable
+  - takable
 events:
   info:
     actor: "Un bâton."
   look:
-    actor: "Un bâton d'une vingtaine de centimètres de long."
+    actor: "C'est un bâton d'une vingtaine de centimètres de long."
   take:
-    actor: "Vous prenez le bâton. À cet instant, le chien remue la queue de plus belle."
+    actor: "Vous prenez le bâton. À cet instant, le chien remue la queue intensément."
 ---
 id: armoire-000
 type: Container
@@ -258,6 +261,8 @@ id: escabeau-000
 type: Thing
 name: escabeau
 events:
+  info:
+    actor: "Un escabeau en bois."
   look:
     actor: |
       Un escabeau tout à fait banal. Sur les deux côtés vous lisez des lettres incrustées dans le bois.
@@ -272,6 +277,8 @@ names:
   - clef
 gendre: fem
 events:
+  info:
+    actor: "Une clé en fer."
   look:
     actor: |
       En regardant attentivement la dentition de la clé, vous devinez qu'elle ouvre la serrure par
