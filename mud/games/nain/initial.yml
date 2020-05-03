@@ -123,8 +123,8 @@ events:
       Vous êtes maintenant à un mètre du chien. Celui-ci se redresse.
       Il ne semble pas très grand mais son museau vous arrive tout de même à votre ventre
       gargouillant. "Waf waf" dit le chien qui n'a plus l'air de vouloir parler. <br>
-      <button id="btEat" type="button" class="btn btn-primary" onclick="btEat()">Manger</button>
-      <button id="btTouch" type="button" class="btn btn-warning" onclick="btTouch()">Toucher le nez</button>
+      <button id="btEat" type="button" class="btn btn-primary" onclick="btEat()">Essayer de le manger</button>
+      <button id="btTouch" type="button" class="btn btn-warning" onclick="btTouch()">Le caresser</button>
     effects:
       - type: ChangePropEffect
         modifs: -lookable #marche pas encore
