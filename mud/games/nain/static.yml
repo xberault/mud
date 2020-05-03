@@ -240,14 +240,14 @@ events:
   jump:
     succeeded:
       actor: |
-        Vous venez d'effectuer un tout petit saut
+        Vous venez d'effectuer un tout petit saut.
       observer: |
-        {{ actor.name }} a mis toutes ses forces dans un saut ... très petit
+        {{ actor.name }} a mis toutes ses forces dans un saut ... très petit.
     failed:
       actor: |
-        Vous tombez 
+        Vous sautez et tombez misérablement au sol. 
       observer: |
-        {{ actor.name }} vient de tomber misérablement
+        {{ actor.name }} vient de tomber misérablement.
 
 
 

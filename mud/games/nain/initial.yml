@@ -77,9 +77,6 @@ exits:
         - props: exit:activated
           actor: "Vous passez la petite porte sans vous baisser."
           observer: "{{actor.name}} passe la petite porte."
-          #effects:
-            #- type : ChangePropEffect
-            #  modifs : -exit:activated
         - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front."
           observer: "{{actor.name}} fonce tête baissée dans le mur nord. Il jure."
           data-driven: true
@@ -93,9 +90,6 @@ exits:
         - props: exit:activated
           actor: "Vous passez la petite porte."
           observer: "{{actor.name}} passe la petite porte au sud."
-          #effects:
-            #- type : ChangePropEffect
-            #  modifs : -exit:activated
         - actor: "Vous foncez tête baissée dans un mur, vous avez mal au front."
           observer: "{{actor.name}} fonce tête baissée dans le mur sud. Il jure."
           data-driven: true
@@ -223,6 +217,8 @@ contains:
 parts:
   - creeper-000
   - nez-koala-003
+props:
+  - weak
 events:
   info:
     actor: "Petite salle très sombre"
@@ -232,6 +228,12 @@ events:
       est la seule source de lumière. Vous apercevez tout de même une statue de koala semblant
       similaire à celle que vous avez déjà vue. Dans le coin le plus éloigné de votre position,
       une forme sombre reste immobile.
+  #jump:
+  #  actor: |
+  #    Vous sautez. Vous sentez une douleur fulgurante vous traverser vos chevilles.
+  #  observer: |
+  #    Le sol craque.
+  # marche po
 ---
 id: koala-003
 type: Thing
@@ -280,3 +282,33 @@ events:
       Lorsque vous touchez la créature, le sifflement venant de sa bouche s'intensifie. Son corps tout
       entier commence à vibrer, et s'emplie d'une lumière éblouissante. Tout d'un coup... <br>
       <i> BOUM </i> L'explosion engendrée par la creature, vous projette sur un mur.
+    observer: |
+      {{actor.name}} s'approche de la créature et la touche du bout du doigt. La chose siffle bruyamment.
+      Puis une explosion, semblant venir de la créature, vous projette sur un mur de la salle.
+    effects:
+      - type: EnterPortalEffect
+        exit: =portal-salle3-000-bas
+---
+id: portal-salle3-salle4
+type: Portal
+exits:
+  - id: portal-salle3-000-bas
+    location: salle3-000
+    events:
+      enter-portal:
+        actor: "Vous tombez."
+        observer: "{{actor.name}} tombe et disparaît dans les ténèbres."
+  - id: portal-salle4-000-haut
+    location: salle4-000
+    events:
+      enter-portal:
+        actor: "Personne ne lira jamais cette phrase :/"
+---
+id: salle4-000
+type: Location
+events:
+  info:
+    actor: "Salle 4 enorme ouais"
+  look:
+    actor: |
+      C'est la salle 4 ouais ya une pioche il casse tout, il meurt trois fois, go voir le gdoc
