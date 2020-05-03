@@ -201,7 +201,7 @@ exits:
 id: salle2-000
 type: Location
 parts:
-#  - chien-001
+   - chien-001
    - armoire-000
    - porte-000
 events:
@@ -211,8 +211,21 @@ events:
     actor: |
       Vous êtes dans une très grande salle. Le plafond a l'air si haut qu'il vous est
       difficile de savoir s'il y en a vraiment un. La grandeur de cette salle est
-      accentué par le vide qui l'habite. Vous ne voyez qu'une grande armoire sur votre
+      accentuée par le vide qui l'habite. Vous ne voyez qu'une grande armoire sur votre
       gauche. Vous retrouvez le chien au centre de la salle.
+---
+id: chien-001
+type: Thing
+name: chien
+props:
+  - pushable
+events:
+  look:
+    actor: |
+      Le chien agite la queue. Il vous observe, comme s'il attendez quelque chose de vous.
+  push:
+    actor: |
+      Vous touchez le chien. À ce moment là, il court vers l'armoire et vous présente un bâton.
 ---
 id: armoire-000
 type: Container
