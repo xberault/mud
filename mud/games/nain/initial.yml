@@ -215,12 +215,68 @@ events:
       En regardant attentivement la dentition de la clé, vous devinez qu'elle ouvre la serrure par
       laquelle vous la regarder. Vous apercevez aussi, sur son embase, un symbole formant la tête
       d'un koala.
-# ---
-# id: portal-accueil-culdesac-000
-# type: Portal
-# exits:
-#   - id: accueil-000-haut
-#     location: accueil-000
-#     direction: haut
-#     events:
-#       enter-portal: "oui"
+---
+id: salle3-000
+type: Location
+contains:
+  - koala-003
+parts:
+  - creeper-000
+  - nez-koala-003
+events:
+  info:
+    actor: "Petite salle très sombre"
+  look:
+    actor: |
+      Vous arrivez dans une salle très sombre. La petite ouverture par laquelle vous êtes entré
+      est la seule source de lumière. Vous apercevez tout de même une statue de koala semblant
+      similaire à celle que vous avez déjà vue. Dans le coin le plus éloigné de votre position,
+      une forme sombre reste immobile.
+---
+id: koala-003
+type: Thing
+names:
+  - koala
+  - statue
+events:
+  info:
+    actor: "Une statue de koala"
+  look:
+    actor: |
+      Cette statue, bien que ressemblante à la première, n'y est en rien similaire. Vous la trouvez
+      en effet nettement plus somptueuse. Peut-être est-ce son nez, qui cette fois ci, semble tout
+      à fait banal, ou bien peut-être est-ce le reste de son visage, semblant plus vrai que nature.
+---
+id: nez-koala-003
+type: Thing
+name: nez
+events:
+  look:
+    actor: |
+      Ce nez vous semble bien plus ravissieux que celui de la première statue que vous avez rencontrée.
+      Il ne vous semble pas que ce nez active un mécanisme cette fois ci.
+---
+id: creeper-000
+type: Thing
+names:
+  - creeper
+  - ombre
+  - forme
+  - créature
+  - creature
+props:
+  - pushable
+events:
+  look:
+    actor: |
+      Vous regardez attentivement la forme au fond de la salle. Elle s'approche de vous.
+      Dans la pénombre de la salle, vous voyez la forme de la créature. Elle est plus grande que vous
+      et est étrangement lisse et rectangulaire. Elle avance à l'aide de quatre pieds, sans jambes,
+      sans bras, le reste du corps immobile. La créature apparaît à la lumière. Elle est d'un vert criard.
+      Son visage est dépourvue de nez. Ses yeux d'un noir profond vous observe. Sa bouche énorme, et toute
+      aussi noire, émet un léger sifflement.
+  push:
+    actor: |
+      Lorsque vous touchez la créature, le sifflement venant de sa bouche s'intensifie. Son corps tout
+      entier commence à vibrer, et s'emplie d'une lumière éblouissante. Tout d'un coup... <br>
+      <i> BOUM </i> L'explosion engendrée par la creature, vous projette sur un mur.

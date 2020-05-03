@@ -33,7 +33,7 @@ def make_rules():
         (LightOffAction , r"[eé]teindre %s(\S+)" % DETS),
         (DropAction     , r"(?:poser|laisser) %s(\S+)" % DETS),
         (DropInAction   , r"(?:poser|laisser) %s(\S+) (?:dans |sur |)%s(\S+)" % (DETS,DETS)),
-        (PushAction     , r"(?:appuyer|pousser|presser)(?: sur|) %s(\S+)" % DETS),
+        (PushAction     , r"(?:appuyer|pousser|presser|toucher)(?: sur|) %s(\S+)" % DETS),
         (TeleportAction , r"tele(?:porter|) (\S+)"),
         (EnterAction    , r"entrer"),
         (LeaveAction    , r"sortir|partir"),
