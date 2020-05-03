@@ -237,6 +237,7 @@ events:
   shared-props:
     - closed
     - closable
+
   jump:
     succeeded:
       actor: |
@@ -253,9 +254,9 @@ events:
   bark:
     succeeded:
       actor: |
-        Vous faites un petit waouf
+        Vous faites un petit waouf, pas très convaincant.
       observer: |
-        {{ actor.name }} se met à aboyer.
+        {{ actor.name }} se met à aboyer. Ça n'est pas très convaincant.
 
 
   # this is the default for portal/exits

@@ -108,20 +108,20 @@ events:
       À cinq mètres devant vous, vous remarquez un chien qui agite étrangement ses
       babines. Vous distinguez difficilement, au fond de la salle, une grande porte
       de pierre.
-  bark:
-      actor: |
-        Vous aboyez excellement bien.
-      observer: |
-        Vous entendez {{ actor.name }} exceller à ses talents de chien.
-      effects:
-        - type: ChangePropEffect
-          modifs: =salle2-000-sud:activated
-        - type: ChangePropEffect
-          modifs: =salle1-000-nord:activated
-        - type: NarrativeEffect
-          at: =salle1-000
-          key: porteouverte
-  # bark marche po
+  # bark:
+  #     actor: |
+  #       Vous aboyez excellement bien.
+  #     observer: |
+  #       Vous entendez {{ actor.name }} exceller à ses talents de chien.
+  #     effects:
+  #       - type: ChangePropEffect
+  #         modifs: =salle2-000-sud:activated
+  #       - type: ChangePropEffect
+  #         modifs: =salle1-000-nord:activated
+  #       - type: NarrativeEffect
+  #         at: =salle1-000
+  #         key: porteouverte
+  # un nain ne sait pas aboyer
   porteouverte:
     observer: |
       La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.

@@ -80,7 +80,7 @@ function btEat()
 {
     if(!$("#btEat").prop("disabled"))
     {
-        let rep1 = "<div class='alert mud-result'>Le chien fuie à travers une petite trappe que vous venez d'apercevoir au nord</div>";
+        let rep1 = "<div class='alert mud-result'>Le chien fuie à travers une petite trappe que vous venez d'apercevoir à côté de la grande porte au nord.</div>";
         $("#inboxcontents").append(rep1);
         updateBt();
     }
@@ -90,8 +90,8 @@ function btTouch()
 {
     if(!$("#btTouch").prop("disabled"))
     {
-        let rep1 = "<div class='alert mud-result'>Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord.</div>";
-        let rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter de vous frapper vous ou les koalas."
+        let rep1 = "<div class='alert mud-result'>Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court ensuite vers une trappe à côté de la grande porte au nord.</div>";
+        let rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter frapper qui ce soit en ces lieux."
         $("#inboxcontents").append(rep1,rep2);
         updateBt();
     }
