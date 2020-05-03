@@ -227,12 +227,25 @@ events:
     actor: |
       Vous touchez le chien. À ce moment là, il court vers l'armoire et vous présente un bâton.
 ---
+id: baton-000
+type: Thing
+props:
+  -takable
+events:
+  info:
+    actor: "Un bâton."
+  look:
+    actor: "Un bâton d'une vingtaine de centimètres de long."
+  take:
+    actor: "Vous prenez le bâton. À cet instant, le chien remue la queue de plus belle."
+---
 id: armoire-000
 type: Container
 name: armoire
 contains:
   - escabeau-000
   - cle-armoire-000
+  - baton-000
 events:
   look:
     actor: |
