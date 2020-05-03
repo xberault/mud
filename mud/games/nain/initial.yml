@@ -70,8 +70,8 @@ exits:
   - id: accueil-000-nord
     location: accueil-000
     direction: nord
-    props:
-      - for-leave
+    # props:
+    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -83,8 +83,8 @@ exits:
   - id: salle1-000-sud
     location: salle1-000
     direction: sud
-    props:
-      - for-leave
+    # props:
+    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -107,6 +107,17 @@ events:
       À cinq mètres devant vous, vous remarquez un chien qui agite étrangement ses
       babines. Vous distinguez difficilement, au fond de la salle, une grande porte
       de pierre.
+  # bark:
+  #     actor: |
+  #       La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
+  #     observer: |
+  #       {{ actor.name }} vient d'ouvrir la grande porte grâce à ses talents de chien.
+  #     effects:
+  #       - type: ChangePropEffect
+  #         modifs: =salle2-000-sud:activated
+  #       - type: ChangePropEffect
+  #         modifs: =salle1-000-nord:activated
+  # marche po
 ---
 id: chien-000
 type: Thing
@@ -128,14 +139,6 @@ events:
     effects:
       - type: ChangePropEffect
         modifs: object:cannot-look #marche pas encore
-    bark:
-      actor: |
-        La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
-      observer: |
-        {{ actor.name }} vient d'ouvrir la grande porte grâce à ses talents de chien.
-      effects:
-        -type: ChangePropEffect
-        modifs: =portal-salle1-salle2-000:activated
 ---
 id: portal-salle1-salle2-000
 type: Portal
@@ -143,8 +146,8 @@ exits:
   - id: salle1-000-nord
     location: salle1-000
     direction: nord
-    props:
-      - for-leave
+    # props:
+    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -156,8 +159,8 @@ exits:
   - id: salle2-000-sud
     location: salle2-000
     direction: sud
-    props:
-      - for-leave
+    # props:
+    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -234,30 +237,37 @@ events:
     actor: |
       C'est une petite porte en bois. Elle fait 1m20 de haut, pour 50cm de large. Elle est si vieille
       que vous ne comprenez pas comment elle tient encore sur ses gonds. Un simple coup de vent pourrait
-      la faire basculer.
+      la faire basculer, mais sa poignée a été arrachée.
   take:
     actor: "Vous prenez simplement la porte."
     effects:
       - type: ChangePropEffect
         modifs: -pushable
+      - type: ChangePropEffect
+        modifs: =salle2-000-ouest:activated
   push:
     actor: "Vous poussez simplement la porte. Elle tombe à terre."
     observer: "{{actor.name}} pousse légèrement une porte à droite de l'armoire. Elle tombe à terre."
     effects:
       - type: ChangePropEffect
         modifs: -pushable
+      - type: ChangePropEffect
+        modifs: =salle2-000-ouest:activated
 ---
 id: portal-salle2-salle3-000
 type: Portal
 exits:
-  - id: portal-salle2-000-ouest
+  - id: salle2-000-ouest
     location: salle2-000
     direction: ouest
     events:
       enter-portal:
-        actor: "Vous passez par l'ouverture."
-        observer: "{{actor.name}} passe par une petite ouverture à droite de l'armoire."
-  - id: portal-salle3-000-est
+        - props: exit:activated
+          actor: "Vous passez par l'ouverture."
+          observer: "{{actor.name}} passe par une petite ouverture à droite de l'armoire."
+        - actor: "Il y a une vieille porte en bois qui vous bloque le passage."
+          data-driven: true
+  - id: salle3-000-est
     location: salle3-000
     direction: est
     events:
@@ -342,18 +352,18 @@ events:
       Puis une explosion, semblant venir de la créature, vous projette sur un mur de la salle.
     effects:
       - type: EnterPortalEffect
-        exit: =portal-salle3-000-bas
+        exit: =salle3-000-bas
 ---
 id: portal-salle3-salle4-000
 type: Portal
 exits:
-  - id: portal-salle3-000-bas
+  - id: salle3-000-bas
     location: salle3-000
     events:
       enter-portal:
         actor: "Vous tombez."
         observer: "{{actor.name}} tombe et disparaît dans les ténèbres."
-  - id: portal-salle4-000-haut
+  - id: salle4-000-haut
     location: salle4-000
     events:
       enter-portal:
