@@ -1,3 +1,5 @@
+var prevMsg = "";
+
 function start_websocket() {
     $(document).ready(function() {
 	if (!window.console) window.console = {};
@@ -19,14 +21,20 @@ function start_websocket() {
             if (e.keyCode == 13) {
 		newMessage($(this));
 		return false;
-            }
-	});
+            } 
+    });
+
+
+    
 	$("#command").select();
 	updater.start();
     });
 }
 
 function newMessage(form) {
+    msg = document.getElementById('inputbox').value;
+    if(msg!="undefined")
+        prevMsg = msg;
     var message = form.formToDict();
     updater.socket.send(JSON.stringify(message));
     form.find("input[type=text]").val("").select();
@@ -90,8 +98,8 @@ function btTouch()
 {
     if(!$("#btTouch").prop("disabled"))
     {
-        let rep1 = "<div class='alert mud-result'>Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court ensuite vers une trappe à côté de la grande porte au nord.</div>";
-        let rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter frapper qui ce soit en ces lieux."
+        rep1 = "<div class='alert mud-result'>Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court ensuite vers une trappe à côté de la grande porte au nord.</div>";
+        rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter frapper qui ce soit en ces lieux."
         $("#inboxcontents").append(rep1,rep2);
         updateBt();
     }
@@ -105,9 +113,14 @@ function updateBt(){
 
 
 
-
-
-
-
+function inputKeyDown(e)
+{
+    //  up arrow
+    if(e.keyCode == 38)
+    {
+        document.getElementById('inputbox').value = prevMsg
+    }
+    
+}
 
 

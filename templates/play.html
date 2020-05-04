@@ -15,7 +15,7 @@
   <form action="/" method="post" id="messageform" role="form">
     <div class="form-group col-lg-10">
       <label class="sr-only" for="inputbox">Command</label>
-      <input type="text" name="text" id="inputbox" class="form-control" placeholder="Command"/>
+      <input type="text" onkeydown="inputKeyDown(event)" name="text" id="inputbox" class="form-control" placeholder="Command"/>
     </div>
         <input id="submitBtn" type="submit col-lg-3" value="Send" class="btn btn-info"/>
     <input type="hidden" name="type" value="input"/>
