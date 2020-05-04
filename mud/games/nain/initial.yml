@@ -433,9 +433,25 @@ exits:
 ---
 id: salle4-000
 type: Location
+parts:
+  - pioche-000
 events:
   info:
-    actor: "Salle 4 enorme ouais"
+    actor: "Vous êtes tomber avec un petit <i>pouf<i> ridicule et vous vous relevez dans une autre salle."
   look:
     actor: |
-      C'est la salle 4 ouais ya une pioche il casse tout, il meurt trois fois, go voir le gdoc
+          La salle paraît creusée dans la pierre, vous trouvez une pioche près de la où vous êtes atteri, vous pensez pouvoir casser les murs qui vous entourent.
+---
+id: pioche-000
+type: Thing
+names:
+  - pioche
+props:
+  - takable
+events:
+  look:
+    actor: |
+      Il s'agit d'une pioche banale, manche en bois, tête en métal, elle est à une taille parfaite pour votre morphologie     
+  take:
+    actor: |
+      Vous prenez la pioche en main, la sensation vous est familière
