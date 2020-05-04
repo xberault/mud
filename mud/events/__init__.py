@@ -22,3 +22,4 @@ from .teleport     import TeleportEvent
 from .narrative    import NarrativeEvent
 from .jump         import JumpEvent
 from .bark         import BarkEvent
+from .broke        import BrokeEvent
