@@ -4,7 +4,7 @@ class JumpEvent(Event1):
     NAME = "jump"
 
     def perform(self):
-        loc = self.context()["location"]
+        loc = self.actor.container()
         if not loc.has_prop("weak"):
             self.fail()
             return self.inform("jump.failed")
