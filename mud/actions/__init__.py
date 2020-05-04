@@ -16,3 +16,4 @@ from .push      import PushAction
 from .teleport  import TeleportAction
 from .jump      import JumpAction
 from .bark      import BarkAction
+from .broke     import BrokeAction
