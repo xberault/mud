@@ -234,6 +234,11 @@ events:
       actor: |
         Vous vous matérialisez à votre destination.
 
+
+  # this is the default for portal/exits
+  # it should not really be under events, but that's because
+  # I am using the get_event_data API.  It should fix this one day!!!
+
   shared-props:
     - closed
     - closable
@@ -257,8 +262,16 @@ events:
         Vous faites un petit waouf, pas très convaincant.
       observer: |
         {{ actor.name }} se met à aboyer. Ça n'est pas très convaincant.
-
-
-  # this is the default for portal/exits
-  # it should not really be under events, but that's because
-  # I am using the get_event_data API.  It should fix this one day!!!
+  broke:
+    succeeded:
+        actor: |
+          Vous annihilez totalement {{ object.noun_the() }} avec votre {{ object2.name }}.
+        observer: |
+          {{ actor.name }} vient de détruire {{ object.noun_a() }}.
+    failed:
+      breaker:
+        actor: |
+          Pourquoi essayez-vous de détruire {{ object.noun_a()}} avec juste {{ object2.noun_a() }} ?!
+      breakable:
+        actor: |
+          En essayant de casser {{ object.noun_the() }} vous venez de vous faire mal.
