@@ -244,11 +244,10 @@ events:
     - closable
 
   jump:
-    succeeded:
-      actor: |
-        Vous venez d'effectuer un tout petit saut.
-      observer: |
-        {{ actor.name }} a mis toutes ses forces dans un saut ... très petit.
+    actor: |
+      Vous venez d'effectuer un tout petit saut.
+    observer: |
+      {{ actor.name }} a mis toutes ses forces dans un saut ... très petit.
     failed:
       actor: |
         Vous sautez et tombez misérablement au sol. 
@@ -257,17 +256,16 @@ events:
 
 
   bark:
-    succeeded:
-      actor: |
-        Vous faites un petit waouf, pas très convaincant.
-      observer: |
-        {{ actor.name }} se met à aboyer. Ça n'est pas très convaincant.
+    actor: |
+      Vous faites un petit waouf, pas très convaincant.
+    observer: |
+      {{ actor.name }} se met à aboyer. Ça n'est pas très convaincant.
+
   broke:
-    succeeded:
-        actor: |
-          Vous annihilez totalement {{ object.noun_the() }} avec votre {{ object2.name }}.
-        observer: |
-          {{ actor.name }} vient de détruire {{ object.noun_a() }}.
+    actor: |
+        Vous annihilez totalement {{ object.noun_the() }} avec votre {{ object2.name }}.
+    observer: |
+        {{ actor.name }} vient de détruire {{ object.noun_a() }}.
     failed:
       breaker:
         actor: |

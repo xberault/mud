@@ -97,8 +97,9 @@ exits:
 ---
 id: salle1-000
 type: Location
-parts:
+contains:
   - chien-000
+parts:
   - trappe-000
 events:
   info:
@@ -201,9 +202,10 @@ exits:
 ---
 id: salle2-000
 type: Location
-parts:
+contains:
    - chien-001
    - armoire-000
+parts:
    - porte-000
 events:
   info:
@@ -356,11 +358,11 @@ events:
       est la seule source de lumière. Vous apercevez tout de même une statue de koala semblant
       similaire à celle que vous avez déjà vue. Dans le coin le plus éloigné de votre position,
       une forme sombre reste immobile.
-  #jump:
-  #  actor: |
-  #    Vous sautez. Vous sentez une douleur fulgurante vous traverser vos chevilles.
-  #  observer: |
-  #    Le sol craque.
+  jump:
+   actor: |
+     Vous sautez. Vous sentez une douleur fulgurante vous traverser vos chevilles.
+   observer: |
+     Le sol craque.
   # marche po
 ---
 id: koala-003
@@ -434,7 +436,7 @@ exits:
 ---
 id: salle4-000
 type: Location
-parts:
+contains:
   - pioche-000
 events:
   info:
