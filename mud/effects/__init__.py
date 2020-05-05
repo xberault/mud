@@ -18,3 +18,4 @@ from .take       import TakeEffect
 from .type       import TypeEffect
 from .narrative  import NarrativeEffect
 from .broke      import BrokeEffect
+from .jump       import JumpEffect
