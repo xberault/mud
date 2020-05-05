@@ -12,4 +12,4 @@ class BrokeEvent(Event3):
         if not object1.has_prop("breakable"):
             self.fail()
             return self.inform("broke.failed.breakable")
-        self.inform("broke.succeeded")
+        self.inform("broke")

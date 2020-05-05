@@ -8,4 +8,4 @@ class JumpEvent(Event1):
         if not loc.has_prop("weak"):
             self.fail()
             return self.inform("jump.failed")
-        self.inform("jump.succeeded")
+        self.inform("jump")
