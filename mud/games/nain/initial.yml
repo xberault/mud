@@ -3,7 +3,6 @@ id: accueil-000
 type: Location
 contains:
   - koala-000
-  - hammer-000
 parts:
   - nez-koala-000
 events:
