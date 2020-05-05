@@ -35,7 +35,6 @@ class LookEvent(Event1):
             self.buffer_inform("look.objects-intro")
             self.buffer_append("<ul>")
             for x in objects:
-                print(x)
                 self.buffer_peek(x)
             self.buffer_append("</ul>")
         self.actor.send_result(self.buffer_get())
