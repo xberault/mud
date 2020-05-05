@@ -4,4 +4,4 @@ from mud.events import JumpEvent
 
 
 class JumpEffect(Effect1):
-    EVENT = BrokeEvent
+    EVENT = JumpEvent
