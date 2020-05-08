@@ -374,6 +374,8 @@ type: Thing
 names:
   - koala
   - statue
+props:
+  - pushable
 events:
   info:
     actor: "Une statue de koala"
@@ -382,15 +384,40 @@ events:
       Cette statue, bien que ressemblante à la première, n'y est en rien similaire. Vous la trouvez
       en effet nettement plus somptueuse. Peut-être est-ce son nez, qui cette fois ci, semble tout
       à fait banal, ou bien peut-être est-ce le reste de son visage, semblant plus vrai que nature.
+  push:
+    actor: |
+      Au moment ou votre ongle effleure la statue, la tête du koala tourne sur elle même, puis s'
+      arrête net, semblant vous regarder de ses yeux vides. Alors, la bouche du koala s'entreouvre
+      et vous entendez une voix caverneuse vous addresser un simple mot : "<i>SAUTE</i>".
+    observer: |
+      {{actor.name}} touche le koala. La tête du koala fait un tour sur elle même et vous jurerez
+      d'avoir vu sa bouche bouger.
+    effects:
+      - type: ChangePropEffect
+        modifs: -pushable
 ---
 id: nez-koala-003
 type: Thing
 name: nez
+props:
+  - pushable
 events:
   look:
     actor: |
-      Ce nez vous semble bien plus ravissieux que celui de la première statue que vous avez rencontrée.
-      Il ne vous semble pas que ce nez active un mécanisme cette fois ci.
+      Ce nez vous semble bien plus ravissant que celui de la première statue que vous avez rencontrée.
+      Il ne vous semble pas que ce nez active un mécanisme cette fois ci. On ne peut cependant être
+      sur de rien.
+  push:
+    actor: |
+      Au moment ou votre ongle effleure la statue, la tête du koala tourne sur elle même, puis s'
+      arrête net, semblant vous regarder de ses yeux vides. Alors, la bouche du koala s'entreouvre
+      et vous entendez une voix caverneuse vous addresser un simple mot : "<i>SAUTE</i>".
+    observer: |
+      {{actor.name}} touche le koala. La tête du koala fait un tour sur elle même et vous jurerez
+      d'avoir vu sa bouche bouger.
+    effects:
+      - type: ChangePropEffect
+        modifs: -pushable
 ---
 id: creeper-000
 type: Thing
