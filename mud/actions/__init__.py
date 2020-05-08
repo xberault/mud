@@ -17,3 +17,4 @@ from .teleport  import TeleportAction
 from .jump      import JumpAction
 from .bark      import BarkAction
 from .broke     import BrokeAction
+from .drink     import DrinkAction

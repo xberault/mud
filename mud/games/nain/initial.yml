@@ -1,4 +1,37 @@
 ---
+id: salle-1-000
+type: Location
+contains:
+  - bierre-000
+events:
+  info:
+    actor: "Étage"
+  look:
+    actor: |
+      Il semble y avoir eu un éboulement ici. Vous ne voyez pas grand chose. Sur un rebord, vous trouvez
+      une bouteille.
+---
+id: bierre-000
+type: Thing
+names:
+  - bierre
+  - bouteille
+props:
+  - takable
+  - drinkable
+events:
+  info:
+    actor: "Une bierre"
+  look:
+    actor: |
+      Une bierre, semblant dater d'une époque lointaine. Vous vous rendez compte que votre gorge est un
+      peu sèche...
+  drink:
+    actor: |
+      Vous buvez entièrement la bierre. Votre angoisse montante depuis votre arrivée, est comme absorbée
+      par le liquide. Vous vous sentez bien...
+    observer: "{{actor.name}} boit une bierre, puis s'allonge."
+---
 id: accueil-000
 type: Location
 contains:

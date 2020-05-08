@@ -19,3 +19,4 @@ from .type       import TypeEffect
 from .narrative  import NarrativeEffect
 from .broke      import BrokeEffect
 from .jump       import JumpEffect
+from .drink      import DrinkEffect
