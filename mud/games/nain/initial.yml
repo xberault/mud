@@ -359,10 +359,14 @@ events:
       similaire à celle que vous avez déjà vue. Dans le coin le plus éloigné de votre position,
       une forme sombre reste immobile.
   jump:
-   actor: |
-     Vous sautez. Vous sentez une douleur fulgurante vous traverser vos chevilles.
-   observer: |
-     Le sol craque.
+    actor: |
+      Vous sautez. Vous sentez une douleur fulgurante vous traverser les chevilles.
+    observer: |
+      Le sol craque. VOus sentez votre pied droit chavirer dans le vide mais vous vous ratrapper
+      de justesse. Vous entendez {{actor.name}} crier derrière vous.
+    effects:
+      - type: EnterPortalEffect
+        exit: =salle3-000-bas
   # marche po
 ---
 id: koala-003
