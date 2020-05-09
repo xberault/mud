@@ -3,6 +3,7 @@
 #==============================================================================
 
 from tornado.template import Template
+from mud.models.button         import Button
 from mud.models.mixins.evented import Evented
 from mud.models.mixins.propertied import Propertied
 from mud.models.mixins.containing import Containing
@@ -69,6 +70,32 @@ class Event(Evented, Propertied):
                 self.buffer_append("<p>%s</p>" % item)
             first = False
 
+    def buffer_htmlize_button(self, dict_bt):
+        name = dict_bt.get("name","")
+        btId = dict_bt.get("btId","btClick")
+        
+        see = dict_bt.get("actor","Ce boutton semble inutil")
+        see = "<div class='alert mud-result'>" + see + "</div>"
+        
+        rep = dict_bt.get("rep","__null")
+        if rep != "__null":
+            rep = "<div class='alert mud-info'>" + rep + "</div>"
+            
+        disabling = dict_bt.get("disabling","true")
+        
+        action = dict_bt.get("action","btClick")
+        color = dict_bt.get("color", "primary")
+        self.buffer_append(f'<button \
+                            id="{btId}" type="button" \
+                            class="btn btn-{color}" \
+                            onclick="{action}(this,{disabling})"\
+                            data-rep1="{see}"\
+                            data-rep2="{rep}">\
+                            {name}</button>'
+                           )
+    
+        
+
     def buffer_inform(self, dotpath, **kargs):
         text = self.get_template(dotpath, **kargs)
         if text:
@@ -83,11 +110,20 @@ class Event(Evented, Propertied):
 
     def buffer_peek(self, what, **kargs):
         text = what.get_template("info.actor", peeked=what)
-        if text:
-            html = self.format(text, peeked=what, **kargs)
-            self.buffer_append("<li>")
-            self.buffer_htmlize(html, omit_first_p=True)
-            self.buffer_append("</li>")
+
+        try:
+            # if it is a button
+            what.get_template("info.actor.action",peeked=what)
+            self.buffer_htmlize_button(what.get_template("info.actor", peeked=what))
+            return None
+        except:
+            if text:
+                html = self.format(text, peeked=what, **kargs)
+                self.buffer_append("<li>")
+                self.buffer_htmlize(html, omit_first_p=True)
+                self.buffer_append("</li>")
+            
+                
 
 
 class Event1(Event):
