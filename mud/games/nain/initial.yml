@@ -504,10 +504,12 @@ contains:
   - pioche-000
 events:
   info:
-    actor: "Vous êtes tomber avec un petit <i>pouf<i> ridicule et vous vous relevez dans une autre salle."
+    actor: "Vous êtes dans une grande salle creusée dans la pierre."
   look:
     actor: |
-          La salle paraît creusée dans la pierre, vous trouvez une pioche près de la où vous êtes atteri, vous pensez pouvoir casser les murs qui vous entourent.
+          La salle est carée et paraît comme si elle avait étée creusée et que quelqu'un se serait débarassé des caillous en les poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
+    observer: |
+      {{actor.name}} tourne sa tête dans tous les sens et fixe avec détermination les murs de la salle.
 ---
 id: pioche-000
 type: Thing
@@ -515,10 +517,256 @@ names:
   - pioche
 props:
   - takable
+  - breaker
 events:
+  info:
+    actor: "Une petite pioche"
   look:
     actor: |
-      Il s'agit d'une pioche banale, manche en bois, tête en métal, elle est à une taille parfaite pour votre morphologie     
+      Il s'agit d'une pioche banale, manche en bois, tête en métal, elle est à une taille parfaite pour votre morphologie.
+    observer: |
+      {{actor.name}} porte une pioche devant ses yeux et la fixe pendant quelques instants.      
   take:
     actor: |
       Vous prenez la pioche en main, la sensation vous est familière
+---
+id: mur-000
+type: Thing
+names:
+  - mur
+props:
+  - breakable
+events:
+  look:
+    actor: |
+      C'est un tas de pierres.
+---
+id: mur-001
+type: Thing
+names:
+  - mur
+props:
+  - breakable
+events:
+  look:
+    actor: |
+      C'est un tas de pierres.
+---
+id: mur-002
+type: Thing
+names:
+  - mur
+props:
+  - breakable
+events:
+  look:
+    actor: |
+      C'est un tas de pierres.
+---
+id: mur-003
+type: Thing
+names:
+  - mur
+props:
+  - breakable
+events:
+  look:
+    actor: |
+      C'est un tas de pierres.
+---
+id: salle4-nord-000
+type: Location
+parts:
+  - mur-000
+events:
+  info:
+    actor: "Vous êtes près du mur nord de la salle."
+  look:
+    actor: |
+          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres.
+    observer: |
+      {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
+---
+id: salle4-est-000
+type: Location
+parts:
+  - mur-001
+events:
+  info:
+    actor: "Vous êtes près du mur est de la salle."
+  look:
+    actor: |
+          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres, vous sentez une sorte de sensation étrange qunad vous regardez dans cette direction.
+    observer: |
+      {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
+---
+id: salle4-sud-000
+type: Location
+parts:
+  - mur-002
+events:
+  info:
+    actor: "Vous êtes près du mur sud de la salle."
+  look:
+    actor: |
+          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres.
+    observer: |
+      {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
+---
+id: salle4-ouest-000
+type: Location
+parts:
+  - mur-003
+events:
+  info:
+    actor: "Vous êtes près du mur ouest de la salle."
+  look:
+    actor: |
+          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres mais vous pouvez voir un petit scintillement derrière les cailloux.
+    observer: |
+      {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
+---
+id: portal-salle4-centre-nord-000
+type: Portal
+exits:
+  - id: salle4-000-nord
+    location: salle4-000
+    direction: nord
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur nord de la salle"
+        observer: "{{actor.name}} marche en direction du mur nord."
+  - id: salle4-nord-000-centre
+    location: salle4-nord-000
+    direction: sud
+    events:
+      enter-portal:
+        actor: "Vous retournez au centre de la salle."
+        observer: "{{acto.name}} retourne au centre de la salle."
+---
+id: portal-salle4-centre-est-000
+type: Portal
+exits:
+  - id: salle4-000-est
+    location: salle4-000
+    direction: est
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur est de la salle"
+        observer: "{{actor.name}} marche en direction du mur est."
+  - id: salle4-est-000-centre
+    location: salle4-est-000
+    direction: ouest
+    events:
+      enter-portal:
+        actor: "Vous retournez au centre de la salle."
+        observer: "{{acto.name}} retourne au centre de la salle."
+---
+id: portal-salle4-centre-sud-000
+type: Portal
+exits:
+  - id: salle4-000-sud
+    location: salle4-000
+    direction: sud
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur sud de la salle"
+        observer: "{{actor.name}} marche en direction du mur sud."
+  - id: salle4-sud-000-centre
+    location: salle4-sud-000
+    direction: nord
+    events:
+      enter-portal:
+        actor: "Vous retournez au centre de la salle."
+        observer: "{{acto.name}} retourne au centre de la salle."
+
+---
+id: portal-salle4-centre-ouest-000
+type: Portal
+exits:
+  - id: salle4-000-ouest
+    location: salle4-000
+    direction: ouest
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur ouest de la salle"
+        observer: "{{actor.name}} marche en direction du mur ouest."
+  - id: salle4-ouest-000-centre
+    location: salle4-ouest-000
+    direction: est
+    events:
+      enter-portal:
+        actor: "Vous retournez au centre de la salle."
+        observer: "{{acto.name}} retourne au centre de la salle."
+---
+id: portal-salle4-nord-est-000
+type: Portal
+exits:
+  - id: salle4-nord-000-est
+    location: salle4-nord-000
+    direction: est
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur est de la salle"
+        observer: "{{actor.name}} marche en direction du mur est."
+  - id: salle4-est-000-nord
+    location: salle4-est-000
+    direction: nord
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur nord de la salle"
+        observer: "{{actor.name}} marche en direction du mur nord."
+---
+id: portal-salle4-nord-ouest-000
+type: Portal
+exits:
+  - id: salle4-nord-000-ouest
+    location: salle4-nord-000
+    direction: ouest
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur ouest de la salle"
+        observer: "{{actor.name}} marche en direction du mur ouest."
+  - id: salle4-ouest-000-nord
+    location: salle4-ouest-000
+    direction: nord
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur nord de la salle"
+        observer: "{{actor.name}} marche en direction du mur nord."
+---
+id: portal-salle4-sud-est-000
+type: Portal
+exits:
+  - id: salle4-sud-000-est
+    location: salle4-sud-000
+    direction: est
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur est de la salle"
+        observer: "{{actor.name}} marche en direction du mur est."
+  - id: salle4-est-000-sud
+    location: salle4-est-000
+    direction: sud
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur sud de la salle"
+        observer: "{{actor.name}} marche en direction du mur sud."
+---
+id: portal-salle4-sud-ouest-000
+type: Portal
+exits:
+  - id: salle4-sud-000-ouest
+    location: salle4-sud-000
+    direction: ouest
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur ouest de la salle"
+        observer: "{{actor.name}} marche en direction du mur ouest."
+  - id: salle4-ouest-000-sud
+    location: salle4-ouest-000
+    direction: sud
+    events:
+      enter-portal:
+        actor: "Vous vous avancez vers le mur sud de la salle"
+        observer: "{{actor.name}} marche en direction du mur sud."
