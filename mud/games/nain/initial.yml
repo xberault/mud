@@ -507,7 +507,7 @@ events:
     actor: "Vous êtes dans une grande salle creusée dans la pierre."
   look:
     actor: |
-          La salle est carée et paraît comme si elle avait étée creusée et que quelqu'un se serait débarassé des caillous en les poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
+          La salle est carée et paraît comme si elle avait étée creusée et que quelqu'un se serait débarassé des cailloux en les poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
     observer: |
       {{actor.name}} tourne sa tête dans tous les sens et fixe avec détermination les murs de la salle.
 ---
@@ -536,10 +536,19 @@ names:
   - mur
 props:
   - breakable
+  - pushable
 events:
   look:
     actor: |
       C'est un tas de pierres.
+  push:
+    actor: |
+      Vous frappez les pierres avec votre pioche.
+    effects:
+      - type : ChangePropEffect
+        modifs: =portal-salle4-nord-000-nord:activated
+      - type: EnterPortalEffect
+        exit: =portal-salle4-nord-000-nord
 ---
 id: mur-001
 type: Thing
@@ -547,10 +556,17 @@ names:
   - mur
 props:
   - breakable
+  - pushable
 events:
   look:
     actor: |
-      C'est un tas de pierres.
+      C'est un tas de pierres, vous distinguez un petit scintillement derrière les cailloux.
+  push:
+    actor: |
+      Vous frappez les pierres avec votre pioche.
+    effects:
+      - type: EnterPortalEffect
+        exit: =portal-salle4-
 ---
 id: mur-002
 type: Thing
@@ -558,10 +574,19 @@ names:
   - mur
 props:
   - breakable
+  - pushable
 events:
   look:
     actor: |
       C'est un tas de pierres.
+  push:
+    actor: |
+      Vous frappez les pierres avec votre pioche.
+    effects:
+      - type : ChangePropEffect
+        modifs: =portal-salle4-sud-000-sud:activated
+      - type: EnterPortalEffect
+        exit: =portal-salle4-sud-000-sud
 ---
 id: mur-003
 type: Thing
@@ -569,10 +594,19 @@ names:
   - mur
 props:
   - breakable
+  - pushable
 events:
   look:
     actor: |
-      C'est un tas de pierres.
+      C'est un tas de pierres, vous êtes commes attiré par ce qu'il y a derrière les cailloux.
+  push:
+    actor: |
+      Vous frappez les pierres avec votre pioche.
+    effects:
+      - type : ChangePropEffect
+        modifs: =portal-salle4-ouest-000-ouest:activated
+      - type: EnterPortalEffect
+        exit: =portal-salle4-ouest-000-ouest
 ---
 id: salle4-nord-000
 type: Location
@@ -770,3 +804,101 @@ exits:
       enter-portal:
         actor: "Vous vous avancez vers le mur sud de la salle"
         observer: "{{actor.name}} marche en direction du mur sud."
+---
+id: salle4-ouest-mine-000
+type: Location
+# contains:
+#   - pierre-000
+#   - cube-000
+events:
+  look:
+    actor: |
+          A l'intérieur de l'ouverture vous voyez une forme cubique orange et blanche ainsi que des morceaux de cailloux désormais assez petits pour être pris.
+---
+id: salle4-sud-mine-000
+type: Location
+# contains:
+#   - pierre-001
+events:
+  info:
+    actor: "Vous avez désormais fait un petit tunel"
+  look:
+    actor: |
+      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes des morceaux de cailloux assez petits pour être pris.
+---
+id: salle4-nord-mine-000
+type: Location
+# contains:
+#   - pierre-002
+events:
+  info:
+    actor: "Vous avez désormais fait un petit tunel"
+  look:
+    actor: |
+      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes des morceaux de cailloux assez petits pour être pris.
+---
+id: salle4-nord-nord-mine-000
+type: Portal
+exits:
+  - id: portal-salle4-nord-000-nord
+    location: salle4-nord-000
+    direction: nord
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous empruntez un petit tunel que vous avez creusé."
+          observer: "{{actor.name}} utilise un tunel."
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+          data-driven: true
+  - id: portal-salle4-nord-mine-000-sud
+    location: salle4-nord-mine-000
+    direction: sud
+    events:
+      enter-portal:
+        actor: "Vous sortez de votre tunel et retournez près du mur nord de la salle."
+        observer: "{{actor.name}} marche en dehors du tunel."
+---
+id: salle4-sud-sud-mine-000
+type: Portal
+exits:
+  - id: portal-salle4-sud-000-sud
+    location: salle4-sud-000
+    direction: sud
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous empruntez un petit tunel que vous avez creusé."
+          observer: "{{actor.name}} utilise un tunel."
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+          data-driven: true
+  - id: portal-salle4-sud-mine-000-sud
+    location: salle4-sud-mine-000
+    direction: nord
+    events:
+      enter-portal:
+        actor: "Vous sortez de votre tunel et retournez près du mur sud de la salle."
+        observer: "{{actor.name}} marche en dehors du tunel."
+---
+id: salle4-ouest-ouest-mine-000
+type: Portal
+exits:
+  - id: portal-salle4-ouest-000-ouest
+    location: salle4-ouest-000
+    direction: ouest
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous empruntez un petit tunel que vous avez creusé, vous arrivez dans une ouverture."
+          observer: "{{actor.name}} utilise un tunel."
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+          data-driven: true        
+  - id: portal-salle4-ouest-mine-000-sud
+    location: salle4-ouest-mine-000
+    direction: est
+    events:
+      enter-portal:
+        actor: "Vous sortez de là où vous êtes et retournez près du mur ouest de la salle."
+        observer: "{{actor.name}} marche en dehors du tunel."
