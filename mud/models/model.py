@@ -51,6 +51,9 @@ class Model(Identified, Named, Propertied, Evented, Composed):
 
     def is_exit(self):
         return False
+    
+    def is_button(self):
+        return False
 
     def _has_prop_is_player(self):
         return self.is_player()
@@ -63,6 +66,10 @@ class Model(Identified, Named, Propertied, Evented, Composed):
 
     def _has_prop_is_exit(self):
         return self.is_exit()
+ 
+    def _has_prop_is_exit(self):
+        return self.is_button()
+
 
     #--------------------------------------------------------------------------
     # model API

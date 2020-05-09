@@ -5,3 +5,4 @@ from .player    import Player
 from .portal    import Portal
 from .thing     import Thing
 from .exit      import Exit
+from .button    import Button
