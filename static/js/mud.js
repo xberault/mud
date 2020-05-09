@@ -84,33 +84,46 @@ var updater = {
     }
 };
 
-function btEat()
-{
-    if(!$("#btEat").prop("disabled"))
-    {
-        let rep1 = "<div class='alert mud-result'>Le chien fuie à travers une petite trappe que vous venez d'apercevoir à côté de la grande porte au nord.</div>";
-        $("#inboxcontents").append(rep1);
-        updateBt();
-    }
-};
 
-function btTouch()
-{
-    if(!$("#btTouch").prop("disabled"))
-    {
-        rep1 = "<div class='alert mud-result'>Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court ensuite vers une trappe à côté de la grande porte au nord.</div>";
-        rep2 = "<div class='alert mud-info'> Il vous fait comprendre qu'il vous serait préférable d'éviter frapper qui ce soit en ces lieux."
-        $("#inboxcontents").append(rep1,rep2);
-        updateBt();
-    }
-};
-
-function updateBt(){
-    $("#btEat").prop('disabled',true);
-    $("#btTouch").prop('disabled',true);
-    scroll_to_bottom();
+function updateBtDog(){
+    $("#Touch").prop('disabled',true);
+    $("#Eat").prop('disabled',true);
 }
 
+function updateBt(source,keepActivated){
+    keepActivated == "false" ? false : true;
+    source.disabled = keepActivated;
+    scroll_to_bottom();
+}
+function customFunc(source)
+{
+    // adding all your customs functions onclick here
+    console.log(source.id)
+    switch (source.id)
+    {
+        case "Eat":
+            updateBtDog();
+            break;
+        case "Touch":
+            updateBtDog()
+            break;
+    }
+
+}
+
+function btClick(source,keepActivated)
+{
+        customFunc(source);
+
+        rep1 = source.attributes.getNamedItem("data-rep1").nodeValue;
+        rep2 = source.attributes.getNamedItem("data-rep2").nodeValue;
+        console.log(rep2);
+        if(rep2 == "__null")
+            $("#inboxcontents").append(rep1);
+        else
+            $("#inboxcontents").append(rep1,rep2);
+        updateBt(source,keepActivated)
+}
 
 
 function inputKeyDown(e)
