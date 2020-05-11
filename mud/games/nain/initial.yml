@@ -574,12 +574,11 @@ names:
   - mur
 props:
   - breakable
-  - pushable
 events:
   look:
     actor: |
       C'est un tas de pierres.
-  push:
+  broke:
     actor: |
       Vous frappez les pierres avec votre pioche.
     effects:
@@ -594,12 +593,11 @@ names:
   - mur
 props:
   - breakable
-  - pushable
 events:
   look:
     actor: |
       C'est un tas de pierres, vous distinguez un petit scintillement derrière les cailloux.
-  push:
+  broke:
     actor: |
       Vous frappez les pierres avec votre pioche.
     effects:
@@ -612,12 +610,11 @@ names:
   - mur
 props:
   - breakable
-  - pushable
 events:
   look:
     actor: |
       C'est un tas de pierres.
-  push:
+  broke:
     actor: |
       Vous frappez les pierres avec votre pioche.
     effects:
@@ -632,12 +629,11 @@ names:
   - mur
 props:
   - breakable
-  - pushable
 events:
   look:
     actor: |
       C'est un tas de pierres, vous êtes commes attiré par ce qu'il y a derrière les cailloux.
-  push:
+  broke:
     actor: |
       Vous frappez les pierres avec votre pioche.
     effects:
@@ -845,9 +841,9 @@ exits:
 ---
 id: salle4-ouest-mine-000
 type: Location
-# contains:
-#   - pierre-000
-#   - cube-000
+contains:
+  - pierre-000
+  - cube-000
 events:
   look:
     actor: |
@@ -855,8 +851,8 @@ events:
 ---
 id: salle4-sud-mine-000
 type: Location
-# contains:
-#   - pierre-001
+contains:
+  - pierre-001
 events:
   info:
     actor: "Vous avez désormais fait un petit tunel"
@@ -866,8 +862,8 @@ events:
 ---
 id: salle4-nord-mine-000
 type: Location
-# contains:
-#   - pierre-002
+contains:
+  - pierre-002
 events:
   info:
     actor: "Vous avez désormais fait un petit tunel"
