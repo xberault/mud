@@ -845,9 +845,11 @@ contains:
   - pierre-000
   - cube-000
 events:
+  info:
+    actor: "Vous êtes dans une petite ouverture."
   look:
     actor: |
-          A l'intérieur de l'ouverture vous voyez une forme cubique orange et blanche ainsi que des morceaux de cailloux désormais assez petits pour être pris.
+      A l'intérieur de l'ouverture vous voyez une forme cubique orange et blanche ainsi que des morceaux de cailloux désormais assez petits pour être pris.
 ---
 id: salle4-sud-mine-000
 type: Location
@@ -936,3 +938,62 @@ exits:
       enter-portal:
         actor: "Vous sortez de là où vous êtes et retournez près du mur ouest de la salle."
         observer: "{{actor.name}} marche en dehors du tunel."
+---
+id: pierre-000
+type: Thing
+names:
+  - pierre
+  - caillou
+props:
+  - takable
+events:
+  info:
+    actor: "Une petite pierre"
+  look:
+    actor: |
+      Une pierre provenants de débris
+    observer: "{{actor.name}} regarde une pierre qu'il tiens dans ses mains."
+---
+id: pierre-001
+type: Thing
+names:
+  - pierre
+  - caillou
+props:
+  - takable
+events:
+  info:
+    actor: "Une petite pierre"
+  look:
+    actor: |
+      Une pierre provenants de débris
+    observer: "{{actor.name}} regarde une pierre qu'il tiens dans ses mains."
+---
+id: pierre-002
+type: Thing
+names:
+  - pierre
+  - caillou
+props:
+  - takable
+events:
+  info:
+    actor: "Une petite pierre"
+  look:
+    actor: |
+      Une pierre provenants de débris
+    observer: "{{actor.name}} regarde une pierre qu'il tiens dans ses mains."
+---
+id: cube-000
+type: Thing
+names:
+  - cube
+  - tnt
+events:
+  info:
+    actor: "Un cube orange et blanc?"
+  look:
+    actor: "Vous vous approchez du cube, quand vous posez votre main dessus il se met à brier et il explose. Vous mourez"
+    observer: "{{actor.name}} s'approche du cube puis il y a une explosion et aucune trace de {{actor.name}}."
+    effects:
+      - type: DeathEffect
