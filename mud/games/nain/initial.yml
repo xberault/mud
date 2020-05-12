@@ -601,8 +601,10 @@ events:
     actor: |
       Vous frappez les pierres avec votre pioche.
     effects:
+      - type : ChangePropEffect
+        modifs: =portal-salle4-salle5-000:activated
       - type: EnterPortalEffect
-        exit: =portal-salle4-
+        exit: =portal-salle4-salle5-000
 ---
 id: mur-002
 type: Thing
@@ -997,3 +999,50 @@ events:
     observer: "{{actor.name}} s'approche du cube puis il y a une explosion et aucune trace de {{actor.name}}."
     effects:
       - type: DeathEffect
+---
+id: salle4-est-salle5-000
+type: Portal
+exits:
+  - id: portal-salle4-salle5-000
+    location: salle4-est-000
+    direction: est
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous empruntez un petit tunel que vous avez creusé, vous arrivez dans une ouverture."
+          observer: "{{actor.name}} utilise un tunnel."
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+          data-driven: true        
+  - id: portal-salle5-salle4-000
+    location: salle5-000
+    direction: ouest
+    events:
+      enter-portal:
+        actor: "Vous sortez de là où vous êtes et retournez près du mur est de la salle."
+        observer: "{{actor.name}} marche en dehors du tunel."
+---
+id: salle5-000
+type: Location
+contains:
+  - koala-vivant-000
+events:
+  info:
+    actor: "Vous êtes dans une petite salle."
+  look:
+    actor: |
+          La salle est presque vide il y a une porte au nord de la salle.
+    observer: |
+      {{actor.name}} a vraiment du mal à se repérer dansl'esapce, il plisse les yeux très fort pour discerner ce qu'il y a autour de lui.
+---
+id: koala-vivant-000
+type: Thing
+names:
+  - koala
+  - animal
+events:
+  info:
+    actor: "Un koala."
+  look:
+    actor: "L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>. Pourrais tu aller me chercher de <b>l'eucalyptus</b> dans la salle d'a coté ?</i>"
+---    
