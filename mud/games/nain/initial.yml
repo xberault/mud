@@ -904,8 +904,8 @@ exits:
     events:
       enter-portal:
         - props: exit:activated
-          actor: "Vous empruntez un petit tunel que vous avez creusé."
-          observer: "{{actor.name}} utilise un tunel."
+          actor: "Vous empruntez un petit tunnel que vous avez creusé."
+          observer: "{{actor.name}} utilise un tunnel."
         - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
           observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
           data-driven: true
@@ -914,8 +914,8 @@ exits:
     direction: nord
     events:
       enter-portal:
-        actor: "Vous sortez de votre tunel et retournez près du mur sud de la salle."
-        observer: "{{actor.name}} marche en dehors du tunel."
+        actor: "Vous sortez de votre tunnel et retournez près du mur sud de la salle."
+        observer: "{{actor.name}} marche en dehors du tunnel."
 ---
 id: salle4-ouest-ouest-mine-000
 type: Portal
@@ -927,7 +927,7 @@ exits:
       enter-portal:
         - props: exit:activated
           actor: "Vous empruntez un petit tunel que vous avez creusé, vous arrivez dans une ouverture."
-          observer: "{{actor.name}} utilise un tunel."
+          observer: "{{actor.name}} utilise un tunnel."
         - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
           observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
           data-driven: true        
@@ -952,7 +952,7 @@ events:
   look:
     actor: |
       Une pierre provenants de débris
-    observer: "{{actor.name}} regarde une pierre qu'il tiens dans ses mains."
+    observer: "{{actor.name}} regarde une pierre qu'il tient dans ses mains."
 ---
 id: pierre-001
 type: Thing
@@ -967,7 +967,7 @@ events:
   look:
     actor: |
       Une pierre provenants de débris
-    observer: "{{actor.name}} regarde une pierre qu'il tiens dans ses mains."
+    observer: "{{actor.name}} regarde une pierre qu'il tient dans ses mains."
 ---
 id: pierre-002
 type: Thing
@@ -982,7 +982,7 @@ events:
   look:
     actor: |
       Une pierre provenants de débris
-    observer: "{{actor.name}} regarde une pierre qu'il tiens dans ses mains."
+    observer: "{{actor.name}} regarde une pierre qu'il tient dans ses mains."
 ---
 id: cube-000
 type: Thing

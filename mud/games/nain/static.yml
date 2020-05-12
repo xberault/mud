@@ -275,7 +275,16 @@ events:
           En essayant de casser {{ object.noun_the() }} vous venez de vous faire mal.
 
   drink:
-    actor: "Vous buvez {{ object.noun_a() }}."
-    observer: "{{ actor.name }} boit {{ object.noun_a() }}."
+    actor: |
+      Vous buvez {{ object.noun_a() }}.
+    observer: |
+      {{ actor.name }} boit {{ object.noun_a() }}.
     failed:
-      actor: "Vous ne pouvez pas boire {{ object.noun_a() }}."
+      actor: 
+        Vous ne pouvez pas boire {{ object.noun_a() }}.
+
+  punchWith:
+    actor: |
+      Vous faites preuve d'une grande violence et frappez {{ object.noun_the()}} de toutes vos forces.
+    observer: |
+      {{ actor.name }} se met à frapper {{ object.noun_the() }} sans raison connue.
