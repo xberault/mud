@@ -135,7 +135,7 @@ contains:
   - btLookDog-000
   - btEatDog-000
   - btTouchDog-000
-  - chien-000
+  # - chien-000
 parts:
   - trappe-000
 events:
@@ -164,22 +164,21 @@ events:
   porteouverte:
     observer: |
       La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
+# ---
+# id: chien-000
+# type: Thing
+# name:
+#   - chien
+# events:
+#   info:
+#     actor: "Un chien"
 ---
-id: chien-000
-type: Thing
-name:
-  - chien
-events:
-  info:
-    actor: "Un chien"
----
-
 id: btLookDog-000
 type: Button
 events:
   info:
     actor:
-      name: "Le regarder"
+      name: "Regarder le chien"
       color: info
       actor: |
         Vous remarquez que si le chien agite ses babines, c'est parce qu il parle.
@@ -198,11 +197,11 @@ events:
   info:
     actor:
       btId: Eat
-      name: "Le caresser"
+      name: "Caresser le chien"
       color: primary
       actor: |
-        Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court ensuite vers une trappe à côté 
-        de la grande porte au nord.
+        Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court
+        ensuite vers une trappe à côté de la grande porte au nord.
       disabling: "true"
       rep: |
         Il vous fait comprendre qu'il vous serait préférable d'éviter frapper qui ce soit en ces lieux.
@@ -213,7 +212,7 @@ events:
   info:
     actor:
       btId: Touch 
-      name: "Essayer de le manger"
+      name: "Essayer de manger le chien"
       color: warning
       actor: |
         Le chien fuie à travers une petite trappe que vous venez d'apercevoir 
@@ -545,7 +544,8 @@ events:
     actor: "Vous êtes dans une grande salle creusée dans la pierre."
   look:
     actor: |
-          La salle est carée et paraît comme si elle avait étée creusée et que quelqu'un se serait débarassé des cailloux en les poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
+          La salle est carée et paraît comme si elle avait étée creusée et que quelqu'un se serait débarassé
+          des cailloux en les poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
     observer: |
       {{actor.name}} tourne sa tête dans tous les sens et fixe avec détermination les murs de la salle.
 ---
@@ -666,7 +666,8 @@ events:
     actor: "Vous êtes près du mur est de la salle."
   look:
     actor: |
-          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres, vous sentez une sorte de sensation étrange qunad vous regardez dans cette direction.
+          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres, vous sentez une
+          sorte de sensation étrange qunad vous regardez dans cette direction.
     observer: |
       {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
 ---
@@ -692,7 +693,8 @@ events:
     actor: "Vous êtes près du mur ouest de la salle."
   look:
     actor: |
-          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres mais vous pouvez voir un petit scintillement derrière les cailloux.
+          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres mais vous pouvez voir
+          un petit scintillement derrière les cailloux.
     observer: |
       {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
 ---
@@ -851,7 +853,8 @@ events:
     actor: "Vous êtes dans une petite ouverture."
   look:
     actor: |
-      A l'intérieur de l'ouverture vous voyez une forme cubique orange et blanche ainsi que des morceaux de cailloux désormais assez petits pour être pris.
+      A l'intérieur de l'ouverture vous voyez une forme cubique orange et blanche ainsi que des morceaux de cailloux
+      désormais assez petits pour être pris.
 ---
 id: salle4-sud-mine-000
 type: Location
@@ -862,7 +865,8 @@ events:
     actor: "Vous avez désormais fait un petit tunel"
   look:
     actor: |
-      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes des morceaux de cailloux assez petits pour être pris.
+      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes
+      des morceaux de cailloux assez petits pour être pris.
 ---
 id: salle4-nord-mine-000
 type: Location
@@ -873,7 +877,8 @@ events:
     actor: "Vous avez désormais fait un petit tunel"
   look:
     actor: |
-      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes des morceaux de cailloux assez petits pour être pris.
+      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes
+      des morceaux de cailloux assez petits pour être pris.
 ---
 id: salle4-nord-nord-mine-000
 type: Portal
@@ -1033,7 +1038,8 @@ events:
     actor: |
           La salle est presque vide il y a une porte au nord de la salle.
     observer: |
-      {{actor.name}} a vraiment du mal à se repérer dansl'esapce, il plisse les yeux très fort pour discerner ce qu'il y a autour de lui.
+      {{actor.name}} a vraiment du mal à se repérer dansl'esapce, il plisse les yeux très fort pour discerner ce
+      qu'il y a autour de lui.
 ---
 id: koala-vivant-000
 type: Thing
@@ -1044,5 +1050,6 @@ events:
   info:
     actor: "Un koala."
   look:
-    actor: "L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>. Pourrais tu aller me chercher de <b>l'eucalyptus</b> dans la salle d'a coté ?</i>"
----    
+    actor: "L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>.
+    Pourrais tu aller me chercher de <b>l'eucalyptus</b> dans la salle d'a coté ?</i>"
+---
