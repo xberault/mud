@@ -25,3 +25,4 @@ from .bark         import BarkEvent
 from .broke        import BrokeEvent
 from .drink        import DrinkEvent
 from .punch        import PunchWithEvent
+from .give         import GiveEvent
