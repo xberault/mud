@@ -22,3 +22,4 @@ from .jump       import JumpEffect
 from .drink      import DrinkEffect
 from .punch      import PunchWithEffect
 from .give       import GiveEffect
+from .win        import WinEffect

@@ -157,7 +157,7 @@ events:
 
   dead-action:
     actor: |
-      Vous êtes mort.  Pour recommencer le MUD, cliquer sur Logout,
+      Vous avez terminer la partie.  Pour recommencer le MUD, cliquer sur Logout,
       puis logger vous à nouveau.
 
   drop:
@@ -269,7 +269,7 @@ events:
     failed:
       breaker:
         actor: |
-          Pourquoi essayez-vous de détruire {{ object.noun_a()}} avec juste {{ object2.noun_a() }} ?!
+          Pourquoi essayez-vous de détruire {{ object.noun_a()}} avec {{ object2.noun_a() }} ?!
       breakable:
         actor: |
           En essayant de casser {{ object.noun_the() }} vous venez de vous faire mal.
@@ -307,3 +307,7 @@ events:
           observer: |
             {{ actor.name }} tente futilement de fermer {{ object.noun_the() }}
             qui est déjà fermé{{ object.noun_e() }}.
+
+  win:
+    actor: "Vous avez gagné. Bravo !"
+    observer: "{{actor.name}} disparaît dans un halo de lumière."

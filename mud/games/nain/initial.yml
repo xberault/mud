@@ -33,6 +33,8 @@ events:
       Vous buvez entièrement la bière. Votre angoisse montante depuis votre arrivée, est comme absorbée
       par le liquide. Vous vous sentez bien...
     observer: "{{actor.name}} boit une bière, puis s'allonge."
+    effects:
+      - type: WinEffect
 ---
 id: accueil-000
 type: Location
@@ -1111,7 +1113,7 @@ events:
     actor: |
       Le koala a l'air très heureux et vous dit :<br>
       <i>Tiens si tu veux sortir je suis sur la trappe qui mène à la sortie.</i> <br>
-      Il se pousse et révèle une trappe par laquelle vous pouvez vous glisser."
+      Il se pousse et révèle une trappe par laquelle vous pouvez vous glisser.
     effects:
       - type : ChangePropEffect
         modifs: =salle5-fin-000:activated
@@ -1144,11 +1146,11 @@ exits:
       enter-portal:
         - props: exit:activated
           actor: |
-            Vous empruntez la trappe et arrivez dans un petit couloir, au bout vous pouvez voir de la lumière. 
+            Vous empruntez la trappe et arrivez dans un petit couloir. Au bout vous pouvez voir de la lumière. 
             Vous avancez et vous vous apercevez que cette lumière est celle du soleil. Vous êtes arrivé à la surface.
           observer: "{{actor.name}} passe part une trappe sous le koala."
         - actor: "Vous n'avez pas satisfait le koala, il ne s'écarte pas et ne vous laisse pas passer."
-          observer: "{{actor.name}} essaye de passer en dessous du koala mais le magnifique animal le bloque sans problèmes.."
+          observer: "{{actor.name}} essaye de passer en dessous du koala, mais le magnifique animal le bloque sans problèmes..."
           data-driven: true
   - id: fin-salle5-000
     location: fin-000
@@ -1159,6 +1161,6 @@ id: fin-000
 type: Location
 events:
   info:
-    actor: "Vous avez fini le jeu ! Bravo!"
-  look:
-    actor: "Vous avez fini le jeu ! Bravo!"
+    actor: "Il y a deux façons de gagner. Avez-vous trouver l'autre solution ?"
+    effects:
+            - type: WinEffect
