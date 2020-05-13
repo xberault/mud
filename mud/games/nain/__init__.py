@@ -8,7 +8,7 @@ from mud.actions import (
     LightOnAction, LightOffAction, DropAction, DropInAction,
     PushAction, TeleportAction, EnterAction, LeaveAction,
     JumpAction, BarkAction, BrokeAction, DrinkAction,
-    PunchWithAction
+    PunchWithAction,GiveAction
 )
 
 import mud.game
@@ -42,5 +42,6 @@ def make_rules():
         (BarkAction         , r"aboyer"),
         (BrokeAction        , r"casser %s(\S+) avec %s(\w+)" % (DETS,DETS)),
         (DrinkAction        , r"boire %s(\S+)" % DETS),
-        (PunchWithAction    ,r"(?:frapper|casser) %s(\S+) (?:le |ce |)%s(\S+)" % (DETS,DETS))
+        (PunchWithAction    ,r"(?:frapper|casser) %s(\S+) (?:le |ce |)%s(\S+)" % (DETS,DETS)),
+        (GiveAction         ,r"(?:donner|passer) %s(\S+) (?:le |ce |mon |à |au |)%s(\S+)" % (DETS,DETS))
     )

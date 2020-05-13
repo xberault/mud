@@ -288,3 +288,22 @@ events:
       Vous faites preuve d'une grande violence et frappez {{ object.noun_the()}} de toutes vos forces.
     observer: |
       {{ actor.name }} se met à frapper {{ object.noun_the() }} sans raison connue.
+
+  give:
+    - actor: |
+        Vous faites preuve d'une gentillesse sans nom et donnez {{ object.noun_the() }} à {{ object2.noun_e() }}
+      observer: |
+        {{ actor.name }} vient de donner {{ object.noun_a() }} ) {{ object.noun_a() }}.
+      failed:
+        - props: -object:not-giveable
+          actor: |
+            Vous tentez en vain de donner {{ object.noun_the() }}.
+          observer: |
+            {{ actor.name }} tente en vain de donner {{ object.noun_the() }}
+        - props: -object2:not-receiver
+          actor: |
+            Vous tentez futilement de fermer {{ object.noun_the() }} qui
+            est déjà fermé{{ object.noun_e() }}.
+          observer: |
+            {{ actor.name }} tente futilement de fermer {{ object.noun_the() }}
+            qui est déjà fermé{{ object.noun_e() }}.
