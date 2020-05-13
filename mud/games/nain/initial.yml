@@ -11,27 +11,28 @@ events:
       Il semble y avoir eu un éboulement ici. Vous ne voyez pas grand chose. Sur un rebord, vous trouvez
       une bouteille.
 ---
-
 id: bierre-000
 type: Thing
 names:
-  - bierre
+  - biere
+  - bière
   - bouteille
+gender: fem
 props:
   - takable
   - drinkable
 events:
   info:
-    actor: "Une bierre"
+    actor: "Une bière"
   look:
     actor: |
-      Une bierre, semblant dater d'une époque lointaine. Vous vous rendez compte que votre gorge est un
+      Une bière, semblant dater d'une époque lointaine. Vous vous rendez compte que votre gorge est un
       peu sèche...
   drink:
     actor: |
-      Vous buvez entièrement la bierre. Votre angoisse montante depuis votre arrivée, est comme absorbée
+      Vous buvez entièrement la bière. Votre angoisse montante depuis votre arrivée, est comme absorbée
       par le liquide. Vous vous sentez bien...
-    observer: "{{actor.name}} boit une bierre, puis s'allonge."
+    observer: "{{actor.name}} boit une bière, puis s'allonge."
 ---
 id: accueil-000
 type: Location
@@ -47,12 +48,12 @@ events:
       Vous vous réveillez au milieu d'une petite salle, légèrement
       éclairée par une torche murale. À côté de cette torche, vous
       voyez une statue d'une cinquantaine de centimètres. Vous voyez
-      au dessus de vous une trappe menant vers un étage.
+      au-dessus de vous une trappe menant vers un étage.
   nez-koala:
     observer : |
       Un bruit de friction entre deux roches se fait entendre.
       Une porte s'est ouverte sur un mur de la salle. Votre instinct
-      vous indique que cette porte est au norde de votre salle.
+      vous indique que cette porte est au nord de votre salle.
 ---
 id: koala-000
 type: Thing
@@ -181,14 +182,14 @@ events:
       name: "Regarder le chien"
       color: info
       actor: |
-        Vous remarquez que si le chien agite ses babines, c'est parce qu il parle.
+        Vous remarquez que si le chien agite ses babines, c'est parce qu'il parle.
         Vous vous approchez et entendez difficilement : <br>
         <i>...core ob**gé de re***r i** pou* guid** ces a****is de bi*èdes... ah ** va
         m'en****re c'est **r... oh a*****on en *oilà un, tiens... plus p**i* q** *es
         au***s ce**i-là....</i><br>
         Vous êtes maintenant à un mètre du chien. Celui-ci se redresse.
-        Il ne semble pas très grand mais son museau vous arrive tout de même à votre ventre
-        gargouillant. <i>Waf waf</i> dit le chien qui n'a plus l air de vouloir parler. <br>
+        Il ne semble pas très grand mais son museau arrive tout de même au niveau de votre ventre
+        gargouillant. <i>Waf waf</i> dit le chien qui n'a plus l'air de vouloir parler. <br>
       disabling: "false"
 ---
 id: btEatDog-000
@@ -201,7 +202,7 @@ events:
       color: primary
       actor: |
         Le chien tout fier vous indique d'<tt>aboyer</tt> pour ouvrir la grande porte au nord. Il court
-        ensuite vers une trappe à côté de la grande porte au nord.
+        ensuite vers une trappe à côté de cette porte.
       disabling: "true"
       rep: |
         Il vous fait comprendre qu'il vous serait préférable d'éviter frapper qui ce soit en ces lieux.
@@ -293,9 +294,11 @@ name: chien
 props:
   - pushable
 events:
+  info:
+    actor: "Le chien"
   look:
     actor: |
-      Le chien agite la queue. Il vous observe, comme s'il attendez quelque chose de vous.
+      Le chien agite la queue. Il vous observe, comme s'il attendait quelque chose de vous.
   push:
     actor: |
       Vous touchez le chien. À ce moment là, il court vers l'armoire et vous présente un bâton.
@@ -323,6 +326,8 @@ contains:
   - cle-armoire-000
   - baton-000
 events:
+  info:
+    actor: "Une grande armoire."
   look:
     actor: |
       L'armoire est très imposante. Elle semble faite d'un bois que vous n'avez jamais vu.
@@ -339,8 +344,7 @@ events:
   look:
     actor: |
       Un escabeau tout à fait banal. Sur les deux côtés vous lisez des lettres incrustées dans le bois.
-      Vous lisez : <i> T O I Δ L F M E N I </i> du côté gauche, et <i> I M U T I _ F </i>
-      du côté droit.
+      Vous lisez : <i> T O I Δ L F M E N I </i> du côté gauche, et <i> I M U T I _ F </i> du côté droit.
 ---
 id: cle-armoire-000
 type: Thing
@@ -348,14 +352,14 @@ names:
   - clé
   - cle
   - clef
-gendre: fem
+gender: fem
 events:
   info:
     actor: "Une clé en fer."
   look:
     actor: |
       En regardant attentivement la dentition de la clé, vous devinez qu'elle ouvre la serrure par
-      laquelle vous la regarder. Vous apercevez aussi, sur son embase, un symbole formant la tête
+      laquelle vous la regardez. Vous apercevez aussi, sur son embase, un symbole formant la tête
       d'un koala.
 ---
 id: porte-000
@@ -506,13 +510,13 @@ events:
       Dans la pénombre de la salle, vous voyez la forme de la créature. Elle est plus grande que vous
       et est étrangement lisse et rectangulaire. Elle avance à l'aide de quatre pieds, sans jambes,
       sans bras, le reste du corps immobile. La créature apparaît à la lumière. Elle est d'un vert criard.
-      Son visage est dépourvue de nez. Ses yeux d'un noir profond vous observe. Sa bouche énorme, et toute
+      Son visage est dépourvu de nez. Ses yeux d'un noir profond vous observent. Sa bouche énorme, et tout
       aussi noire, émet un léger sifflement.
   push:
     actor: |
       Lorsque vous touchez la créature, le sifflement venant de sa bouche s'intensifie. Son corps tout
-      entier commence à vibrer, et s'emplie d'une lumière éblouissante. Tout d'un coup... <br>
-      <i> BOUM </i> L'explosion engendrée par la creature, vous projette sur un mur.
+      entier commence à vibrer, et s'emplit d'une lumière éblouissante. Tout d'un coup... <br>
+      <i> BOUM </i> L'explosion engendrée par la créature, vous projette sur un mur.
     observer: |
       {{actor.name}} s'approche de la créature et la touche du bout du doigt. La chose siffle bruyamment.
       Puis une explosion, semblant venir de la créature, vous projette sur un mur de la salle.
@@ -544,9 +548,9 @@ events:
     actor: "Grande salle creusée dans la pierre."
   look:
     actor: |
-      La salle est très grande et carée. Si on ommet le trou par lequel vous êtes tombé, la salle est bas de plafond.
-      Il semble que la salle ai été creusée "rapidement" et que quelqu'un se soit débarassé des cailloux en les
-      poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
+      La salle est très grande et carrée. Si on omet le trou par lequel vous êtes tombé, la salle est bas de plafond.
+      Il semble qu'elle ait été creusée "rapidement" et que quelqu'un se soit débarrassé des cailloux en les
+      poussant sur les côtés de la salle. Vous pensez pouvoir casser les murs qui vous entourent.
     observer: |
       {{actor.name}} tourne sa tête dans tous les sens et fixe avec détermination les murs de la salle.
 ---
@@ -863,10 +867,10 @@ contains:
   - pierre-001
 events:
   info:
-    actor: "Tunel étroit"
+    actor: "Tunnel étroit"
   look:
     actor: |
-      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes
+      Après avoir fait votre tunnel sur quelques mètres, vous vous arrétez. Vous ne trouvez rien de particulier justes
       des morceaux de cailloux assez petits pour être pris.
 ---
 id: salle4-nord-mine-000
@@ -875,10 +879,10 @@ contains:
   - pierre-002
 events:
   info:
-    actor: "Tunel étroit"
+    actor: "Tunnel étroit"
   look:
     actor: |
-      Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes
+      Après avoir fait votre tunnel sur quelques mètres, vous vous arrétez. Vous ne trouvez rien de particulier à part
       des morceaux de cailloux assez petits pour être pris.
 ---
 id: salle4-nord-nord-mine-000
@@ -890,8 +894,8 @@ exits:
     events:
       enter-portal:
         - props: exit:activated
-          actor: "Vous empruntez un petit tunel que vous avez creusé."
-          observer: "{{actor.name}} utilise un tunel."
+          actor: "Vous empruntez un petit tunnel que vous avez creusé."
+          observer: "{{actor.name}} utilise un tunnel."
         - actor: "Vous vous élancez sur le tas de cailloux et faites un plat."
           observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat."
           data-driven: true
@@ -900,8 +904,8 @@ exits:
     direction: sud
     events:
       enter-portal:
-        actor: "Vous sortez de votre tunel et retournez près du mur nord de la salle."
-        observer: "{{actor.name}} marche en dehors du tunel."
+        actor: "Vous sortez de votre tunnel et retournez près du mur nord de la salle."
+        observer: "{{actor.name}} marche en dehors du tunnel."
 ---
 id: salle4-sud-sud-mine-000
 type: Portal
@@ -934,7 +938,7 @@ exits:
     events:
       enter-portal:
         - props: exit:activated
-          actor: "Vous empruntez un petit tunel que vous avez creusé, vous arrivez dans une ouverture."
+          actor: "Vous empruntez un petit tunnel que vous avez creusé, vous arrivez dans une ouverture."
           observer: "{{actor.name}} utilise un tunnel."
         - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
           observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
@@ -945,7 +949,7 @@ exits:
     events:
       enter-portal:
         actor: "Vous sortez de là où vous êtes et retournez près du mur ouest de la salle."
-        observer: "{{actor.name}} marche en dehors du tunel."
+        observer: "{{actor.name}} marche en dehors du tunnel."
 ---
 id: pierre-000
 type: Thing
@@ -998,7 +1002,7 @@ props:
   - pushable
 events:
   info:
-    actor: "Un cube orange et blanc?"
+    actor: "Un étrange cube orange et blanc"
   look:
     actor: |
       Vous vous approchez du cube pour mieux l'inspecter. Celui-ci brille de plus belle, et est secoué dans tous
@@ -1027,7 +1031,7 @@ exits:
     events:
       enter-portal:
         - props: exit:activated
-          actor: "Vous empruntez un petit tunel que vous avez creusé, vous arrivez dans une ouverture."
+          actor: "Vous empruntez un petit tunnel que vous avez creusé, vous arrivez dans une ouverture."
           observer: "{{actor.name}} emprunte un tunnel."
         - actor: "Vous vous élancez sur le tas de cailloux et faites un plat."
           observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat."
@@ -1038,7 +1042,7 @@ exits:
     events:
       enter-portal:
         actor: "Vous sortez de là où vous êtes et retournez près du mur est de la salle."
-        observer: "{{actor.name}} marche en dehors du tunel."
+        observer: "{{actor.name}} marche en dehors du tunnel."
 ---
 id: salle5-000
 type: Location
@@ -1049,7 +1053,7 @@ events:
     actor: "Vous êtes dans une petite salle."
   look:
     actor: |
-      La salle est presque vide il y a une porte au nord de la salle.
+      La salle est presque vide. Il y a une porte au nord de la salle.
 ---
 id: koala-vivant-000
 type: Thing
@@ -1063,8 +1067,8 @@ events:
     actor: "Un koala fait de chair et de poils."
   look:
     actor: |
-      L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>.
-      Pourrais tu aller me chercher de <b>l'eucalyptus</b> ? Je crois qu'il y en a à proximité.</i>
+      L'animal se réveille. <br> <i>Oh salut, tu tombes bien. J'ai une soudaine envie <b>d'eucalyptus</b>.
+      Pourrais-tu aller me chercher de <b>l'eucalyptus</b> ? Je crois qu'il y en a à proximité.</i>
 ---
 id: salle420-000
 type: Location
@@ -1088,23 +1092,26 @@ events:
     actor: "Un koala fait de chair et de poils."
   look:
     actor: |
-      Le koala à des lunettes de soleil, il vous remarque et vous demandes <br> <i> Qu'est-ce que tu veux ? De L'eucalyptus ? Dans ce cas prends en, fait toi plaisir !</i>
+      Le koala a des lunettes de soleil, il vous remarque et vous demande <br> <i> Qu'est-ce que tu veux ?
+      De L'eucalyptus ? Dans ce cas, prends-en, fais toi plaisir !</i>
 ---
 id: eucalyptus-000
 type: Thing
 props:
   - takable
   - giveable
-names:
-  - eucalyptus
+names: eucalyptus
 events:
   info:
     actor: "De l'eucalyptus"
   look:
-    actor: "Il sa'agit d'un plant d'eucalyptus, un met très convoité par les koalas."
+    actor: "Il s'agit d'un plant d'eucalyptus, un mets très convoité par les koalas."
     observer: "{{actor.name}} regarde de très près les plants d'eucalyptus."
   give:
-    actor: "Le koala à l'air très heureux et vous dit:<br> <i>Tiens si tu veux sortir je suis sur la trappe qui mène à la sortie.</i> <br> il se pousse et révèle une trappe"
+    actor: |
+      Le koala a l'air très heureux et vous dit :<br>
+      <i>Tiens si tu veux sortir je suis sur la trappe qui mène à la sortie.</i> <br>
+      Il se pousse et révèle une trappe par laquelle vous pouvez vous glisser."
     effects:
       - type : ChangePropEffect
         modifs: =salle5-fin-000:activated
@@ -1136,8 +1143,9 @@ exits:
     events:
       enter-portal:
         - props: exit:activated
-          actor: "Vous empruntez la trappe et arrivez dans un petit couloir, au bout vous pouvez voir de la lumière. 
-            Vous avancez et vous vous appercevez que cette lumière est celle du soleil. Vous êtes arrivez à la surface."
+          actor: |
+            Vous empruntez la trappe et arrivez dans un petit couloir, au bout vous pouvez voir de la lumière. 
+            Vous avancez et vous vous apercevez que cette lumière est celle du soleil. Vous êtes arrivé à la surface.
           observer: "{{actor.name}} passe part une trappe sous le koala."
         - actor: "Vous n'avez pas satisfait le koala, il ne s'écarte pas et ne vous laisse pas passer."
           observer: "{{actor.name}} essaye de passer en dessous du koala mais le magnifique animal le bloque sans problèmes.."
@@ -1145,7 +1153,7 @@ exits:
   - id: fin-salle5-000
     location: fin-000
     events:
-      actor: "Perssonne n'est sensé passer par là. :/"
+      actor: "Perssssssssssonne n'est sensé passer par là. :/"
 ---
 id: fin-000
 type: Location
