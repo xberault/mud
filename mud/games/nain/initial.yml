@@ -541,11 +541,12 @@ contains:
   - pioche-000
 events:
   info:
-    actor: "Vous êtes dans une grande salle creusée dans la pierre."
+    actor: "Grande salle creusée dans la pierre."
   look:
     actor: |
-          La salle est carée et paraît comme si elle avait étée creusée et que quelqu'un se serait débarassé
-          des cailloux en les poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
+      La salle est très grande et carée. Si on ommet le trou par lequel vous êtes tombé, la salle est bas de plafond.
+      Il semble que la salle ai été creusée "rapidement" et que quelqu'un se soit débarassé des cailloux en les
+      poussant sur les cotés de la salle, vous pensez pouvoir casser les murs qui vous entourent.
     observer: |
       {{actor.name}} tourne sa tête dans tous les sens et fixe avec détermination les murs de la salle.
 ---
@@ -566,7 +567,7 @@ events:
       {{actor.name}} porte une pioche devant ses yeux et la fixe pendant quelques instants.      
   take:
     actor: |
-      Vous prenez la pioche en main, la sensation vous est familière
+      Vous prenez la pioche en main, la sensation vous est familière.
 ---
 id: mur-000
 type: Thing
@@ -634,7 +635,7 @@ props:
 events:
   look:
     actor: |
-      C'est un tas de pierres, vous êtes commes attiré par ce qu'il y a derrière les cailloux.
+      C'est un tas de pierres, vous êtes comme attiré par ce qu'il y a derrière les cailloux.
   broke:
     actor: |
       Vous frappez les pierres avec votre pioche.
@@ -653,7 +654,7 @@ events:
     actor: "Vous êtes près du mur nord de la salle."
   look:
     actor: |
-          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres.
+      Le mur ressemble à un tas de pierres qui ont été grossièrement posées les unes sur les autres.
     observer: |
       {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
 ---
@@ -666,8 +667,8 @@ events:
     actor: "Vous êtes près du mur est de la salle."
   look:
     actor: |
-          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres, vous sentez une
-          sorte de sensation étrange qunad vous regardez dans cette direction.
+      Le mur ressemble a un tas de pierres, qui ont été grossièrement posées les unes sur les autres. Vous sentez
+      une sorte de sensation étrange quand vous regardez dans cette direction.
     observer: |
       {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
 ---
@@ -680,7 +681,7 @@ events:
     actor: "Vous êtes près du mur sud de la salle."
   look:
     actor: |
-          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres.
+      Le mur ressemble a un tas de pierres, qui ont été grossièrement posées les unes sur les autres.
     observer: |
       {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
 ---
@@ -693,8 +694,8 @@ events:
     actor: "Vous êtes près du mur ouest de la salle."
   look:
     actor: |
-          Le mur ressemble a un tas de pierres grossièrment posées les unes sur les autres mais vous pouvez voir
-          un petit scintillement derrière les cailloux.
+      Le mur ressemble a un tas de pierres, qui ont été grossièrement posées les unes sur les autres, mais vous pouvez voir
+      un petit scintillement derrière les cailloux.
     observer: |
       {{actor.name}} lève sa tête vers le mur et fronce les sourcils.
 ---
@@ -706,7 +707,7 @@ exits:
     direction: nord
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur nord de la salle"
+        actor: "Vous vous avancez vers le mur nord de la salle."
         observer: "{{actor.name}} marche en direction du mur nord."
   - id: salle4-nord-000-centre
     location: salle4-nord-000
@@ -724,7 +725,7 @@ exits:
     direction: est
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur est de la salle"
+        actor: "Vous vous avancez vers le mur est de la salle."
         observer: "{{actor.name}} marche en direction du mur est."
   - id: salle4-est-000-centre
     location: salle4-est-000
@@ -742,7 +743,7 @@ exits:
     direction: sud
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur sud de la salle"
+        actor: "Vous vous avancez vers le mur sud de la salle."
         observer: "{{actor.name}} marche en direction du mur sud."
   - id: salle4-sud-000-centre
     location: salle4-sud-000
@@ -761,7 +762,7 @@ exits:
     direction: ouest
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur ouest de la salle"
+        actor: "Vous vous avancez vers le mur ouest de la salle."
         observer: "{{actor.name}} marche en direction du mur ouest."
   - id: salle4-ouest-000-centre
     location: salle4-ouest-000
@@ -779,14 +780,14 @@ exits:
     direction: est
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur est de la salle"
+        actor: "Vous vous avancez vers le mur est de la salle."
         observer: "{{actor.name}} marche en direction du mur est."
   - id: salle4-est-000-nord
     location: salle4-est-000
     direction: nord
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur nord de la salle"
+        actor: "Vous vous avancez vers le mur nord de la salle."
         observer: "{{actor.name}} marche en direction du mur nord."
 ---
 id: portal-salle4-nord-ouest-000
@@ -797,14 +798,14 @@ exits:
     direction: ouest
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur ouest de la salle"
+        actor: "Vous vous avancez vers le mur ouest de la salle."
         observer: "{{actor.name}} marche en direction du mur ouest."
   - id: salle4-ouest-000-nord
     location: salle4-ouest-000
     direction: nord
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur nord de la salle"
+        actor: "Vous vous avancez vers le mur nord de la salle."
         observer: "{{actor.name}} marche en direction du mur nord."
 ---
 id: portal-salle4-sud-est-000
@@ -815,14 +816,14 @@ exits:
     direction: est
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur est de la salle"
+        actor: "Vous vous avancez vers le mur est de la salle."
         observer: "{{actor.name}} marche en direction du mur est."
   - id: salle4-est-000-sud
     location: salle4-est-000
     direction: sud
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur sud de la salle"
+        actor: "Vous vous avancez vers le mur sud de la salle."
         observer: "{{actor.name}} marche en direction du mur sud."
 ---
 id: portal-salle4-sud-ouest-000
@@ -833,14 +834,14 @@ exits:
     direction: ouest
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur ouest de la salle"
+        actor: "Vous vous avancez vers le mur ouest de la salle."
         observer: "{{actor.name}} marche en direction du mur ouest."
   - id: salle4-ouest-000-sud
     location: salle4-ouest-000
     direction: sud
     events:
       enter-portal:
-        actor: "Vous vous avancez vers le mur sud de la salle"
+        actor: "Vous vous avancez vers le mur sud de la salle."
         observer: "{{actor.name}} marche en direction du mur sud."
 ---
 id: salle4-ouest-mine-000
@@ -850,11 +851,11 @@ contains:
   - cube-000
 events:
   info:
-    actor: "Vous êtes dans une petite ouverture."
+    actor: "Petite ouverture."
   look:
     actor: |
       A l'intérieur de l'ouverture vous voyez une forme cubique orange et blanche ainsi que des morceaux de cailloux
-      désormais assez petits pour être pris.
+      désormais assez petits pour être pris à une main.
 ---
 id: salle4-sud-mine-000
 type: Location
@@ -862,7 +863,7 @@ contains:
   - pierre-001
 events:
   info:
-    actor: "Vous avez désormais fait un petit tunel"
+    actor: "Tunel étroit"
   look:
     actor: |
       Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes
@@ -874,7 +875,7 @@ contains:
   - pierre-002
 events:
   info:
-    actor: "Vous avez désormais fait un petit tunel"
+    actor: "Tunel étroit"
   look:
     actor: |
       Après avoir fait votre tunel sur quelques mètres vous vous arrétez. Vous ne trouvez rien de particulier justes
@@ -891,8 +892,8 @@ exits:
         - props: exit:activated
           actor: "Vous empruntez un petit tunel que vous avez creusé."
           observer: "{{actor.name}} utilise un tunel."
-        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
-          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat."
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat."
           data-driven: true
   - id: portal-salle4-nord-mine-000-sud
     location: salle4-nord-mine-000
@@ -913,8 +914,8 @@ exits:
         - props: exit:activated
           actor: "Vous empruntez un petit tunnel que vous avez creusé."
           observer: "{{actor.name}} utilise un tunnel."
-        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
-          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat."
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat."
           data-driven: true
   - id: portal-salle4-sud-mine-000-sud
     location: salle4-sud-mine-000
@@ -948,9 +949,8 @@ exits:
 ---
 id: pierre-000
 type: Thing
-names:
-  - pierre
-  - caillou
+name: pierre
+gender: fem
 props:
   - takable
 events:
@@ -958,14 +958,13 @@ events:
     actor: "Une petite pierre"
   look:
     actor: |
-      Une pierre provenants de débris
+      Une pierre provenant de débris
     observer: "{{actor.name}} regarde une pierre qu'il tient dans ses mains."
 ---
 id: pierre-001
 type: Thing
-names:
-  - pierre
-  - caillou
+name: pierre
+gender: fem
 props:
   - takable
 events:
@@ -973,14 +972,13 @@ events:
     actor: "Une petite pierre"
   look:
     actor: |
-      Une pierre provenants de débris
+      Une pierre provenant de débris
     observer: "{{actor.name}} regarde une pierre qu'il tient dans ses mains."
 ---
 id: pierre-002
 type: Thing
-names:
-  - pierre
-  - caillou
+name: pierre
+gender: fem
 props:
   - takable
 events:
@@ -988,7 +986,7 @@ events:
     actor: "Une petite pierre"
   look:
     actor: |
-      Une pierre provenants de débris
+      Une pierre provenant de débris
     observer: "{{actor.name}} regarde une pierre qu'il tient dans ses mains."
 ---
 id: cube-000
@@ -996,14 +994,29 @@ type: Thing
 names:
   - cube
   - tnt
+props:
+  - pushable
 events:
   info:
     actor: "Un cube orange et blanc?"
   look:
-    actor: "Vous vous approchez du cube, quand vous posez votre main dessus il se met à brier et il explose. Vous mourez"
-    observer: "{{actor.name}} s'approche du cube puis il y a une explosion et aucune trace de {{actor.name}}."
+    actor: |
+      Vous vous approchez du cube pour mieux l'inspecter. Celui-ci brille de plus belle, et est secoué dans tous
+      les sens. Tout d'un coup, vous sentez un souffle de chaleur d'une puissance extrème vous envahir.
+    observer: |
+      {{actor.name}} s'approche d'un cube étrange. Tout d'un coup le cube explose dans un nage de fumée.
+      Il n'y a plus aucune trace de {{actor.name}}.
     effects:
-      - type: DeathEffect
+      type: DeathEffect
+  push:
+    actor: |
+      Au moment où vous touchez le cube, celui-ci brille de plus belle, et est secoué dans tous les sens. Tout d'un
+      coup, vous sentez un souffle de chaleur d'une puissance extrème vous envahir.
+    observer: |
+      {{actor.name}} s'approche d'un cube étrange. Tout d'un coup le cube explose dans un nage de fumée.
+      Il n'y a plus aucune trace de {{actor.name}}.
+    effects:
+      type: DeathEffect
 ---
 id: salle4-est-salle5-000
 type: Portal
@@ -1015,9 +1028,9 @@ exits:
       enter-portal:
         - props: exit:activated
           actor: "Vous empruntez un petit tunel que vous avez creusé, vous arrivez dans une ouverture."
-          observer: "{{actor.name}} utilise un tunnel."
-        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat"
-          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat"
+          observer: "{{actor.name}} emprunte un tunnel."
+        - actor: "Vous vous élancez sur le tas de cailloux et faites un plat."
+          observer: "{{actor.name}} s'élance sur le tas de cailloux et fait un plat."
           data-driven: true        
   - id: portal-salle5-salle4-000
     location: salle5-000
@@ -1036,10 +1049,7 @@ events:
     actor: "Vous êtes dans une petite salle."
   look:
     actor: |
-          La salle est presque vide il y a une porte au nord de la salle.
-    observer: |
-      {{actor.name}} a vraiment du mal à se repérer dansl'esapce, il plisse les yeux très fort pour discerner ce
-      qu'il y a autour de lui.
+      La salle est presque vide il y a une porte au nord de la salle.
 ---
 id: koala-vivant-000
 type: Thing
@@ -1048,8 +1058,8 @@ names:
   - animal
 events:
   info:
-    actor: "Un koala."
+    actor: "Un koala fait de chair et de poils."
   look:
-    actor: "L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>.
-    Pourrais tu aller me chercher de <b>l'eucalyptus</b> dans la salle d'a coté ?</i>"
----
+    actor: |
+      L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>.
+      Pourrais tu aller me chercher de <b>l'eucalyptus</b> ? Je crois qu'il y en a à proximité.</i>
