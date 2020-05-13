@@ -1053,6 +1053,8 @@ events:
 ---
 id: koala-vivant-000
 type: Thing
+props:
+  - receiver
 names:
   - koala
   - animal
@@ -1063,3 +1065,92 @@ events:
     actor: |
       L'animal se réveille. <br> <i>Oh salut, tu tombes bien j'ai un soudaine envie <b>d'eucalyptus</b>.
       Pourrais tu aller me chercher de <b>l'eucalyptus</b> ? Je crois qu'il y en a à proximité.</i>
+---
+id: salle420-000
+type: Location
+contains:
+  - koala-agriculteur-000
+  - eucalyptus-000
+events:
+  info:
+    actor: "Vous êtes dans une petite salle très éclairée."
+  look:
+    actor: |
+      La salle est remplie de plants d'eucalyptus et il y a un koala au milieu de la salle.
+---
+id: koala-agriculteur-000
+type: Thing
+names:
+  - koala
+  - animal
+events:
+  info:
+    actor: "Un koala fait de chair et de poils."
+  look:
+    actor: |
+      Le koala à des lunettes de soleil, il vous remarque et vous demandes <br> <i> Qu'est-ce que tu veux ? De L'eucalyptus ? Dans ce cas prends en, fait toi plaisir !</i>
+---
+id: eucalyptus-000
+type: Thing
+props:
+  - takable
+  - giveable
+names:
+  - eucalyptus
+events:
+  info:
+    actor: "De l'eucalyptus"
+  look:
+    actor: "Il sa'agit d'un plant d'eucalyptus, un met très convoité par les koalas."
+    observer: "{{actor.name}} regarde de très près les plants d'eucalyptus."
+  give:
+    actor: "Le koala à l'air très heureux et vous dit:<br> <i>Tiens si tu veux sortir je suis sur la trappe qui mène à la sortie.</i> <br> il se pousse et révèle une trappe"
+    effects:
+      - type : ChangePropEffect
+        modifs: =salle5-fin-000:activated
+---
+id: portal-salle5-salle420-000
+type: Portal
+exits:
+  - id: salle5-salle420-000
+    location: salle5-000
+    direction: nord
+    events:
+      enter-portal:
+        actor: "Vous passez la porte et arrivez dans une autre salle."
+        observer: "{{actor.name}} emprunte la porte au nord."
+  - id: salle420-salle5-000
+    location: salle420-000
+    direction: sud
+    events:
+      enter-portal:
+      actor: "Vous passez la porte et arrivez dans une autre salle."
+      observer: "{{actor.name}} emprunte la porte au sud."
+---
+id: portal-salle5-fin-000
+type: Portal
+exits:
+  - id: salle5-fin-000
+    location: salle5-000
+    direction: bas
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous empruntez la trappe et arrivez dans un petit couloir, au bout vous pouvez voir de la lumière. 
+            Vous avancez et vous vous appercevez que cette lumière est celle du soleil. Vous êtes arrivez à la surface."
+          observer: "{{actor.name}} passe part une trappe sous le koala."
+        - actor: "Vous n'avez pas satisfait le koala, il ne s'écarte pas et ne vous laisse pas passer."
+          observer: "{{actor.name}} essaye de passer en dessous du koala mais le magnifique animal le bloque sans problèmes.."
+          data-driven: true
+  - id: fin-salle5-000
+    location: fin-000
+    events:
+      actor: "Perssonne n'est sensé passer par là. :/"
+---
+id: fin-000
+type: Location
+events:
+  info:
+    actor: "Vous avez fini le jeu ! Bravo!"
+  look:
+    actor: "Vous avez fini le jeu ! Bravo!"
