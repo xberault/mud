@@ -108,8 +108,6 @@ exits:
   - id: accueil-000-nord
     location: accueil-000
     direction: nord
-    # props:
-    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -121,8 +119,6 @@ exits:
   - id: salle1-000-sud
     location: salle1-000
     direction: sud
-    # props:
-    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -138,7 +134,6 @@ contains:
   - btLookDog-000
   - btEatDog-000
   - btTouchDog-000
-  # - chien-000
 parts:
   - trappe-000
 events:
@@ -150,31 +145,9 @@ events:
       À cinq mètres devant vous, vous remarquez un chien qui agite étrangement ses
       babines. Vous distinguez difficilement, au fond de la salle, une grande porte
       de pierre.
-  # bark:
-  #     actor: |
-  #       Vous aboyez excellement bien.
-  #     observer: |
-  #       Vous entendez {{ actor.name }} exceller à ses talents de chien.
-  #     effects:
-  #       - type: ChangePropEffect
-  #         modifs: =salle2-000-sud:activated
-  #       - type: ChangePropEffect
-  #         modifs: =salle1-000-nord:activated
-  #       - type: NarrativeEffect
-  #         at: =salle1-000
-  #         key: porteouverte
-  # un nain ne sait pas aboyer
   porteouverte:
     observer: |
       La grande porte du nord semble s'être entreouverte et vous devriez pouvoir vous y faufiler.
-# ---
-# id: chien-000
-# type: Thing
-# name:
-#   - chien
-# events:
-#   info:
-#     actor: "Un chien"
 ---
 id: btLookDog-000
 type: Button
@@ -249,8 +222,6 @@ exits:
   - id: salle1-000-nord
     location: salle1-000
     direction: nord
-    # props:
-    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -262,8 +233,6 @@ exits:
   - id: salle2-000-sud
     location: salle2-000
     direction: sud
-    # props:
-    #   - for-leave
     events:
       enter-portal:
         - props: exit:activated
@@ -438,12 +407,11 @@ events:
     actor: |
       Vous sautez. Vous sentez une douleur fulgurante vous traverser les chevilles.
     observer: |
-      Le sol craque. VOus sentez votre pied droit chavirer dans le vide mais vous vous ratrapper
+      Le sol craque. Vous sentez votre pied droit chavirer dans le vide mais vous vous ratrapper
       de justesse. Vous entendez {{actor.name}} crier derrière vous.
     effects:
       - type: EnterPortalEffect
         exit: =salle3-000-bas
-  # marche po
 ---
 id: koala-003
 type: Thing
