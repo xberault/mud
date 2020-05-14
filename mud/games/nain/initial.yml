@@ -527,9 +527,6 @@ exits:
         observer: "{{actor.name}} tombe et disparaît dans les ténèbres."
   - id: salle4-000-haut
     location: salle4-000
-    events:
-      enter-portal:
-        actor: "Personne ne lira jamais cette phrase :/"
 ---
 id: salle4-000
 type: Location
@@ -1144,8 +1141,6 @@ exits:
           data-driven: true
   - id: fin-salle5-000
     location: fin-000
-    events:
-      actor: "Perssssssssssonne n'est sensé passer par là. :/"
 ---
 id: fin-000
 type: Location
