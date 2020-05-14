@@ -36,6 +36,28 @@ events:
     effects:
       - type: WinEffect
 ---
+id: portal-salle-1-accueil-000
+type: Portal
+exits:
+  - id: accueil-haut-000
+    location: accueil-000
+    direction: haut
+    events:
+      enter-portal:
+        - props: exit:activated
+          actor: "Vous montez par la trappe au toit de la salle."
+          observer: "{{actor.name}} passe part une trappe qui mène à l'étage."
+        - actor: "Vous tentez en vain d'atteindre la trappe."
+          observer: "{{actor.name}} lève désespérément ses petits bras en direction du plafond."
+          data-driven: true
+  - id: salle-1-000-bas
+    location: salle-1-000
+    direction: bas
+    events:
+      enter-portal:
+        actor: "Vous redescendez par la trappe."
+        observer: "{{actor.name}} passe part une trappe sous le koala."
+---
 id: accueil-000
 type: Location
 contains:
