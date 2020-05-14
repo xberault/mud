@@ -157,8 +157,8 @@ events:
 
   dead-action:
     actor: |
-      Vous avez terminer la partie.  Pour recommencer le MUD, cliquer sur Logout,
-      puis logger vous à nouveau.
+      Vous avez terminé la partie.  Pour recommencer le MUD, cliquez sur Logout,
+      puis loggez vous à nouveau.
 
   drop:
     actor: |
