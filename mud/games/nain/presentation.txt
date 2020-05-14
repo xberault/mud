@@ -1,0 +1,37 @@
+r
+r statue
+r nez
+appuyer nez
+aller nord
+r
+aboyer
+r trappe
+aller nord
+r
+r armoire
+prendre porte
+aller ouest
+r
+sauter
+r
+prendre pioche
+aller est
+casser mur avec pioche
+r
+r koala
+aller nord
+r
+r koala
+prendre eucalyptus
+donner eucalyptus à koala
+aller bas
+
+tele salle4-000
+prendre pioche
+aller ouest
+casser mur avec pioche
+r cube
+
+tele salle-1
+prendre biere
+boire biere
